@@ -3780,26 +3780,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 77: {
 [e :U _CHECK ]
 [f ]
-[; ;main.c: 79: if (TMR1IF == 1)
-"79
+[; ;main.c: 82: if (TMR1IF == 1)
+"82
 [e $ ! == -> _TMR1IF `i -> 1 `i 372  ]
-[; ;main.c: 80: {
-"80
+[; ;main.c: 83: {
+"83
 {
-[; ;main.c: 81: ((void)(TMR1H=((0xFF00)>>8),TMR1L=((0xFF00)&0xFF)));
-"81
-[e ; = _TMR1H -> >> -> 65280 `ui -> 8 `i `uc = _TMR1L -> & -> 65280 `ui -> -> 255 `i `ui `uc ]
-[; ;main.c: 84: LATB = ~LATB ;
+[; ;main.c: 84: ((void)(TMR1H=((0xFF00)>>8),TMR1L=((0xFF00)&0xFF)));
 "84
+[e ; = _TMR1H -> >> -> 65280 `ui -> 8 `i `uc = _TMR1L -> & -> 65280 `ui -> -> 255 `i `ui `uc ]
+[; ;main.c: 87: LATB = ~LATB ;
+"87
 [e = _LATB -> ~ -> _LATB `i `uc ]
-[; ;main.c: 86: TMR1IF = 0;
-"86
-[e = _TMR1IF -> -> 0 `i `b ]
+[; ;main.c: 89: TMR1IF = 0;
 "89
+[e = _TMR1IF -> -> 0 `i `b ]
+"92
 }
 [e :U 372 ]
-[; ;main.c: 89: }
-[; ;main.c: 93: }
-"93
+[; ;main.c: 92: }
+[; ;main.c: 96: }
+"96
 [e :UE 371 ]
 }

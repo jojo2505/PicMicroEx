@@ -75,6 +75,9 @@ main(void)
 
 void interrupt CHECK()
 {
+    
+    //t_int = tosc*4*présclaer*(0xffff-X+1);X est la valeur qu'on ajoute au timer au debut de l'interruptio
+    //dans notre cas c'est 0xff00
     //INTCONbits.PEIE=1;
     if (TMR1IF == 1)
     {

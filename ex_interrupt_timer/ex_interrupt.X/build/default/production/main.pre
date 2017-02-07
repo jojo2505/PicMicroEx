@@ -4978,6 +4978,9 @@ while(1);
 void interrupt CHECK()
 {
 
+
+
+
 if (TMR1IF == 1)
 {
 ((void)(TMR1H=((0xFF00)>>8),TMR1L=((0xFF00)&0xFF)));
