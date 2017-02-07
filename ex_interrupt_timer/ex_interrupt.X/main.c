@@ -1,7 +1,18 @@
+/*
+ * File:   main.c
+ * Author: aymen
+ *
+ * Created on 7/02/2017 
+ * 
+ * PIC18F4550 , quartz 20Mhz, Fosc = 48Mhz;
+ */
+
+
 
 #include <xc.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include "config.h"
 
 
 #define bitset(var, bitno) ((var) |= 1UL << (bitno))

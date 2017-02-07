@@ -5,7 +5,7 @@ Linker command line:
 --edf=/opt/microchip/xc8/v1.40/dat/en_msgs.txt -cs \
   -h+dist/default/production/ex_interrupt.X.production.sym \
   --cmf=dist/default/production/ex_interrupt.X.production.cmf -z -Q18F4550 \
-  -o/tmp/xcXQHQBJn -Mdist/default/production/ex_interrupt.X.production.map \
+  -o/tmp/xcXjmG411 -Mdist/default/production/ex_interrupt.X.production.map \
   -E1 -ver=XC8 -ASTACK=060h-07ffh -pstack=STACK -ACODE=00h-07FFFh \
   -ACONST=00h-07FFFh -ASMALLCONST=0800h-08FFhx120 \
   -AMEDIUMCONST=0800h-07FFFh -ACOMRAM=01h-05Fh -AABS1=00h-07FFh \
@@ -22,7 +22,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  /tmp/xcXcnQYtj.obj dist/default/production/ex_interrupt.X.production.obj 
+  /tmp/xcXsIBvXZ.obj dist/default/production/ex_interrupt.X.production.obj 
 
 Object code version is 3.11
 
@@ -34,7 +34,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcXcnQYtj.obj
+/tmp/xcXsIBvXZ.obj
                 init                                  E        E        4        4       0
                 reset_vec                             0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
@@ -151,6 +151,44 @@ _TMR1IE                  (abs)        007CE8
 _TMR1IF                  (abs)        007CF0
 _TMR1L                   (abs)        000FCE
 _TRISB                   (abs)        000F93
+__CFG_BOR$ON             (abs)        000000
+__CFG_BORV$3             (abs)        000000
+__CFG_CCP2MX$ON          (abs)        000000
+__CFG_CP0$OFF            (abs)        000000
+__CFG_CP1$OFF            (abs)        000000
+__CFG_CP2$OFF            (abs)        000000
+__CFG_CP3$OFF            (abs)        000000
+__CFG_CPB$OFF            (abs)        000000
+__CFG_CPD$OFF            (abs)        000000
+__CFG_CPUDIV$OSC1_PLL2   (abs)        000000
+__CFG_EBTR0$OFF          (abs)        000000
+__CFG_EBTR1$OFF          (abs)        000000
+__CFG_EBTR2$OFF          (abs)        000000
+__CFG_EBTR3$OFF          (abs)        000000
+__CFG_EBTRB$OFF          (abs)        000000
+__CFG_FCMEN$OFF          (abs)        000000
+__CFG_FOSC$HSPLL_HS      (abs)        000000
+__CFG_ICPRT$OFF          (abs)        000000
+__CFG_IESO$OFF           (abs)        000000
+__CFG_LPT1OSC$OFF        (abs)        000000
+__CFG_LVP$OFF            (abs)        000000
+__CFG_MCLRE$ON           (abs)        000000
+__CFG_PBADEN$OFF         (abs)        000000
+__CFG_PLLDIV$5           (abs)        000000
+__CFG_PWRT$OFF           (abs)        000000
+__CFG_STVREN$ON          (abs)        000000
+__CFG_USBDIV$1           (abs)        000000
+__CFG_VREGEN$OFF         (abs)        000000
+__CFG_WDT$OFF            (abs)        000000
+__CFG_WDTPS$32768        (abs)        000000
+__CFG_WRT0$OFF           (abs)        000000
+__CFG_WRT1$OFF           (abs)        000000
+__CFG_WRT2$OFF           (abs)        000000
+__CFG_WRT3$OFF           (abs)        000000
+__CFG_WRTB$OFF           (abs)        000000
+__CFG_WRTC$OFF           (abs)        000000
+__CFG_WRTD$OFF           (abs)        000000
+__CFG_XINST$OFF          (abs)        000000
 __HRAM                   (abs)        000000
 __Habs1                  abs1         000000
 __Hbank0                 bank0        000000
@@ -312,7 +350,7 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 13 in file "main.c"
+		line 24 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -341,7 +379,7 @@ Total ram usage:        0 bytes
 
  *************** function _CHECK *****************
  Defined at:
-		line 65 in file "main.c"
+		line 76 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type

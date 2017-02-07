@@ -1,8 +1,11 @@
+__CFG_XINST$OFF 0 0 ABS 0
 __S0 30000E 0 ABS 0
 __S1 10 0 ABS 0
 __S2 0 0 ABS 0
 __Hintentry 0 0 ABS 0
+__CFG_PWRT$OFF 0 0 ABS 0
 __Lintentry 0 0 ABS 0
+__CFG_PLLDIV$5 0 0 ABS 0
 _PEIE 7F96 0 ABS 0
 _LATB F8A 0 ABS 0
 _IPEN 7E87 0 ABS 0
@@ -19,6 +22,7 @@ __Hirdata 0 0 CODE 0
 __Lirdata 0 0 CODE 0
 __HRAM 0 0 ABS 0
 __LRAM 1 0 ABS 0
+__CFG_WDTPS$32768 0 0 ABS 0
 __Hconfig 30000E 0 CONFIG 0
 __Lconfig 300000 0 CONFIG 0
 __Hbigram 0 0 ABS 0
@@ -32,6 +36,7 @@ __Lcomram 0 0 ABS 0
 __Hsfr 0 0 ABS 0
 __Lsfr 0 0 ABS 0
 __Hbss 0 0 RAM 1
+__CFG_STVREN$ON 0 0 ABS 0
 __Lbss 0 0 RAM 1
 ___param_bank 0 0 ABS 0
 __Hnvrram 0 0 COMRAM 1
@@ -64,16 +69,23 @@ __Lfardata 0 0 FARRAM 0
 __pintcode 8 0 CODE 0
 __Habs1 0 0 ABS 0
 __Labs1 0 0 ABS 0
+__CFG_EBTR0$OFF 0 0 ABS 0
 __HnvFARRAM 0 0 FARRAM 0
 __LnvFARRAM 0 0 FARRAM 0
+__CFG_EBTR1$OFF 0 0 ABS 0
+__CFG_PBADEN$OFF 0 0 ABS 0
+__CFG_EBTR2$OFF 0 0 ABS 0
 __Hdata 0 0 ABS 0
 __Ldata 0 0 ABS 0
+__CFG_EBTR3$OFF 0 0 ABS 0
 stackhi 7FF 0 ABS 0
+__CFG_CPUDIV$OSC1_PLL2 0 0 ABS 0
 __Htemp 10 0 COMRAM 1
 __Ltemp F 0 COMRAM 1
 stacklo 60 0 ABS 0
 __Hrbit 0 0 COMRAM 1
 __Lrbit 0 0 COMRAM 1
+__CFG_BOR$ON 0 0 ABS 0
 __Hinit 12 0 CODE 0
 __Linit E 0 CODE 0
 __Hintcodelo E 0 CODE 0
@@ -83,7 +95,10 @@ __end_of_main BA 0 CODE 0
 __Lrbss 0 0 COMRAM 1
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
+__CFG_CCP2MX$ON 0 0 ABS 0
 end_of_initialization BA 0 CODE 0
+__CFG_USBDIV$1 0 0 ABS 0
+__CFG_VREGEN$OFF 0 0 ABS 0
 _T1CONbits FCD 0 ABS 0
 __Hibigdata 0 0 CODE 0
 __Libigdata 0 0 CODE 0
@@ -141,30 +156,53 @@ __Lnvbit 0 0 COMRAM 1
 __Hcinit 0 0 ABS 0
 __Lcinit 0 0 ABS 0
 __pcinit BA 0 CODE 0
+__CFG_EBTRB$OFF 0 0 ABS 0
 __ramtop 800 0 RAM 0
 __mediumconst 0 0 MEDIUMCONST 0
 __size_of_main 0 0 ABS 0
 __Hconst 0 0 CONST 0
 __Lconst 0 0 CONST 0
+__CFG_WRT0$OFF 0 0 ABS 0
+__CFG_WRT1$OFF 0 0 ABS 0
+__CFG_WRT2$OFF 0 0 ABS 0
+__CFG_WRT3$OFF 0 0 ABS 0
+__CFG_FCMEN$OFF 0 0 ABS 0
 ___inthi_sp 0 0 STACK 2
+__CFG_BORV$3 0 0 ABS 0
 ___intlo_sp 0 0 STACK 2
 _INTCONbits FF2 0 ABS 0
+__CFG_CP0$OFF 0 0 ABS 0
 __smallconst 0 0 SMALLCONST 0
+__CFG_FOSC$HSPLL_HS 0 0 ABS 0
+__CFG_CP1$OFF 0 0 ABS 0
 __Hreset_vec 4 0 CODE 0
 __Lreset_vec 0 0 CODE 0
+__CFG_CP2$OFF 0 0 ABS 0
+__CFG_CP3$OFF 0 0 ABS 0
 __accesstop 60 0 ABS 0
 __Hintcode_body 0 0 ABS 0
 __Lintcode_body 0 0 ABS 0
 __pintcode_body 12 0 CODE 0
 intlevel0 0 0 CODE 0
 intlevel1 0 0 CODE 0
+__CFG_WRTB$OFF 0 0 ABS 0
 intlevel2 0 0 CODE 0
 intlevel3 0 0 CODE 0
+__CFG_WRTC$OFF 0 0 ABS 0
+__CFG_WRTD$OFF 0 0 ABS 0
+__CFG_CPB$OFF 0 0 ABS 0
+__CFG_CPD$OFF 0 0 ABS 0
 start_initialization BA 0 CODE 0
+__CFG_IESO$OFF 0 0 ABS 0
+__CFG_MCLRE$ON 0 0 ABS 0
 __size_of_CHECK 0 0 ABS 0
 __initialization BA 0 CODE 0
 __end_of_CHECK 96 0 CODE 0
+__CFG_LPT1OSC$OFF 0 0 ABS 0
+__CFG_ICPRT$OFF 0 0 ABS 0
 __activetblptr 0 0 ABS 0
+__CFG_WDT$OFF 0 0 ABS 0
+__CFG_LVP$OFF 0 0 ABS 0
 %segments
 reset_vec 0 3 CODE 0 0
 intcode 8 C3 CODE 8 0
@@ -174,38 +212,38 @@ cstackCOMRAM 1 F COMRAM 1 1
 %locals
 dist/default/production/ex_interrupt.X.production.obj
 /opt/microchip/xc8/v1.40/include/pic18f4550.h
-/tmp/xcX0d0bUW
-416 BA 0 CODE 0
-418 BA 0 CODE 0
-421 BA 0 CODE 0
-427 BA 0 CODE 0
-429 BA 0 CODE 0
-430 BC 0 CODE 0
-431 BE 0 CODE 0
-432 C0 0 CODE 0
+/tmp/xcXHw8bq5
+492 BA 0 CODE 0
+494 BA 0 CODE 0
+497 BA 0 CODE 0
+503 BA 0 CODE 0
+505 BA 0 CODE 0
+506 BC 0 CODE 0
+507 BE 0 CODE 0
+508 C0 0 CODE 0
 main.c
-13 96 0 CODE 0
-17 96 0 CODE 0
-18 9A 0 CODE 0
-23 9E 0 CODE 0
-30 A0 0 CODE 0
-33 A2 0 CODE 0
-35 A4 0 CODE 0
-37 A6 0 CODE 0
-47 A8 0 CODE 0
-48 AA 0 CODE 0
-50 AC 0 CODE 0
-54 AE 0 CODE 0
-56 B0 0 CODE 0
-58 B2 0 CODE 0
-60 B8 0 CODE 0
+24 96 0 CODE 0
+28 96 0 CODE 0
+29 9A 0 CODE 0
+34 9E 0 CODE 0
+41 A0 0 CODE 0
+44 A2 0 CODE 0
+46 A4 0 CODE 0
+48 A6 0 CODE 0
+58 A8 0 CODE 0
+59 AA 0 CODE 0
+61 AC 0 CODE 0
+65 AE 0 CODE 0
+67 B0 0 CODE 0
+69 B2 0 CODE 0
+71 B8 0 CODE 0
 main.c
-61 8 0 CODE 0
-65 8 0 CODE 0
+72 8 0 CODE 0
+76 8 0 CODE 0
 main.c
-65 12 0 CODE 0
-68 4C 0 CODE 0
-70 50 0 CODE 0
-73 56 0 CODE 0
-75 58 0 CODE 0
-82 5A 0 CODE 0
+76 12 0 CODE 0
+79 4C 0 CODE 0
+81 50 0 CODE 0
+84 56 0 CODE 0
+86 58 0 CODE 0
+93 5A 0 CODE 0

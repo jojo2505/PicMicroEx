@@ -3637,93 +3637,169 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
 [; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
 [; ;stdio.h: 195: extern int printf(const char *, ...);
-"13 main.c
-[v _main `(v ~T0 @X0 1 ef ]
+"2 config.h
+[p x PLLDIV=5 ]
+"3
+[p x CPUDIV=OSC1_PLL2 ]
+"4
+[p x USBDIV=1 ]
+"7
+[p x FOSC=HSPLL_HS ]
+"8
+[p x FCMEN=OFF ]
+"9
+[p x IESO=OFF ]
+"12
+[p x PWRT=OFF ]
+"13
+[p x BOR=ON ]
 "14
+[p x BORV=3 ]
+"15
+[p x VREGEN=OFF ]
+"18
+[p x WDT=OFF ]
+"19
+[p x WDTPS=32768 ]
+"22
+[p x CCP2MX=ON ]
+"23
+[p x PBADEN=OFF ]
+"24
+[p x LPT1OSC=OFF ]
+"25
+[p x MCLRE=ON ]
+"28
+[p x STVREN=ON ]
+"29
+[p x LVP=OFF ]
+"30
+[p x ICPRT=OFF ]
+"31
+[p x XINST=OFF ]
+"34
+[p x CP0=OFF ]
+"35
+[p x CP1=OFF ]
+"36
+[p x CP2=OFF ]
+"37
+[p x CP3=OFF ]
+"40
+[p x CPB=OFF ]
+"41
+[p x CPD=OFF ]
+"44
+[p x WRT0=OFF ]
+"45
+[p x WRT1=OFF ]
+"46
+[p x WRT2=OFF ]
+"47
+[p x WRT3=OFF ]
+"50
+[p x WRTC=OFF ]
+"51
+[p x WRTB=OFF ]
+"52
+[p x WRTD=OFF ]
+"55
+[p x EBTR0=OFF ]
+"56
+[p x EBTR1=OFF ]
+"57
+[p x EBTR2=OFF ]
+"58
+[p x EBTR3=OFF ]
+"61
+[p x EBTRB=OFF ]
+"24 main.c
+[v _main `(v ~T0 @X0 1 ef ]
+"25
 {
-[; ;main.c: 12: void
-[; ;main.c: 13: main(void)
-[; ;main.c: 14: {
+[; ;main.c: 23: void
+[; ;main.c: 24: main(void)
+[; ;main.c: 25: {
 [e :U _main ]
 [f ]
-[; ;main.c: 17: TRISB=0x00;
-"17
+[; ;main.c: 28: TRISB=0x00;
+"28
 [e = _TRISB -> -> 0 `i `uc ]
-[; ;main.c: 18: PORTB = 0x00;
-"18
+[; ;main.c: 29: PORTB = 0x00;
+"29
 [e = _PORTB -> -> 0 `i `uc ]
-[; ;main.c: 23: IPEN = 0;
-"23
+[; ;main.c: 34: IPEN = 0;
+"34
 [e = _IPEN -> -> 0 `i `b ]
-[; ;main.c: 30: INTCONbits.GIE = 1;
-"30
+[; ;main.c: 41: INTCONbits.GIE = 1;
+"41
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 33: PEIE = 1;
-"33
+[; ;main.c: 44: PEIE = 1;
+"44
 [e = _PEIE -> -> 1 `i `b ]
-[; ;main.c: 35: TMR1IE = 1;
-"35
+[; ;main.c: 46: TMR1IE = 1;
+"46
 [e = _TMR1IE -> -> 1 `i `b ]
-[; ;main.c: 37: T1CONbits.RD16 = 1;
-"37
-[e = . . _T1CONbits 1 6 -> -> 1 `i `uc ]
-[; ;main.c: 47: T1CONbits.T1CKPS0 = 1;
-"47
-[e = . . _T1CONbits 2 3 -> -> 1 `i `uc ]
-[; ;main.c: 48: T1CONbits.T1CKPS1 = 0;
+[; ;main.c: 48: T1CONbits.RD16 = 1;
 "48
-[e = . . _T1CONbits 2 4 -> -> 0 `i `uc ]
-[; ;main.c: 50: T1CONbits.T1OSCEN = 0;
-"50
-[e = . . _T1CONbits 1 3 -> -> 0 `i `uc ]
-[; ;main.c: 54: T1CONbits.TMR1CS = 0;
-"54
-[e = . . _T1CONbits 1 1 -> -> 0 `i `uc ]
-[; ;main.c: 56: T1CONbits.TMR1ON = 1;
-"56
-[e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
-[; ;main.c: 58: ((void)(TMR1H=((0xFF00)>>8),TMR1L=((0xFF00)&0xFF)));
+[e = . . _T1CONbits 1 6 -> -> 1 `i `uc ]
+[; ;main.c: 58: T1CONbits.T1CKPS0 = 1;
 "58
+[e = . . _T1CONbits 2 3 -> -> 1 `i `uc ]
+[; ;main.c: 59: T1CONbits.T1CKPS1 = 0;
+"59
+[e = . . _T1CONbits 2 4 -> -> 0 `i `uc ]
+[; ;main.c: 61: T1CONbits.T1OSCEN = 0;
+"61
+[e = . . _T1CONbits 1 3 -> -> 0 `i `uc ]
+[; ;main.c: 65: T1CONbits.TMR1CS = 0;
+"65
+[e = . . _T1CONbits 1 1 -> -> 0 `i `uc ]
+[; ;main.c: 67: T1CONbits.TMR1ON = 1;
+"67
+[e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
+[; ;main.c: 69: ((void)(TMR1H=((0xFF00)>>8),TMR1L=((0xFF00)&0xFF)));
+"69
 [e ; = _TMR1H -> >> -> 65280 `ui -> 8 `i `uc = _TMR1L -> & -> 65280 `ui -> -> 255 `i `ui `uc ]
-[; ;main.c: 60: while(1);
-"60
+[; ;main.c: 71: while(1);
+"71
 [e :U 369 ]
 [e :U 368 ]
 [e $U 369  ]
 [e :U 370 ]
-[; ;main.c: 61: }
-"61
+[; ;main.c: 72: }
+"72
 [e :UE 367 ]
 }
 [v F3971 `(v ~T0 @X0 1 tf ]
-"65
+"76
 [v _CHECK `IF3971 ~T0 @X0 1 e ]
-"66
+"77
 {
-[; ;main.c: 65: void interrupt CHECK()
-[; ;main.c: 66: {
+[; ;main.c: 76: void interrupt CHECK()
+[; ;main.c: 77: {
 [e :U _CHECK ]
 [f ]
-[; ;main.c: 68: if (TMR1IF == 1)
-"68
+[; ;main.c: 79: if (TMR1IF == 1)
+"79
 [e $ ! == -> _TMR1IF `i -> 1 `i 372  ]
-[; ;main.c: 69: {
-"69
+[; ;main.c: 80: {
+"80
 {
-[; ;main.c: 70: ((void)(TMR1H=((0xFF00)>>8),TMR1L=((0xFF00)&0xFF)));
-"70
+[; ;main.c: 81: ((void)(TMR1H=((0xFF00)>>8),TMR1L=((0xFF00)&0xFF)));
+"81
 [e ; = _TMR1H -> >> -> 65280 `ui -> 8 `i `uc = _TMR1L -> & -> 65280 `ui -> -> 255 `i `ui `uc ]
-[; ;main.c: 73: LATB = ~LATB ;
-"73
+[; ;main.c: 84: LATB = ~LATB ;
+"84
 [e = _LATB -> ~ -> _LATB `i `uc ]
-[; ;main.c: 75: TMR1IF = 0;
-"75
+[; ;main.c: 86: TMR1IF = 0;
+"86
 [e = _TMR1IF -> -> 0 `i `b ]
-"78
+"89
 }
 [e :U 372 ]
-[; ;main.c: 78: }
-[; ;main.c: 82: }
-"82
+[; ;main.c: 89: }
+[; ;main.c: 93: }
+"93
 [e :UE 371 ]
 }
