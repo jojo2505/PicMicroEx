@@ -1,4 +1,5 @@
 __CFG_XINST$OFF 0 0 ABS 0
+_PR2 FCB 0 ABS 0
 __S0 30000E 0 ABS 0
 __S1 10 0 ABS 0
 __S2 0 0 ABS 0
@@ -9,12 +10,10 @@ __CFG_PLLDIV$5 0 0 ABS 0
 _PEIE 7F96 0 ABS 0
 _LATB F8A 0 ABS 0
 _IPEN 7E87 0 ABS 0
-_main 96 0 CODE 0
+_main 90 0 CODE 0
 ___sp 0 0 STACK 2
 btemp F 0 COMRAM 1
 start E 0 CODE 0
-_TMR1H FCF 0 ABS 0
-_TMR1L FCE 0 ABS 0
 _CHECK 8 0 CODE 0
 _TRISB F93 0 ABS 0
 _PORTB F81 0 ABS 0
@@ -44,10 +43,10 @@ __Lnvrram 0 0 COMRAM 1
 int$flags F 0 COMRAM 1
 __Heeprom_data 0 0 EEDATA 0
 __Leeprom_data 0 0 EEDATA 0
-_TMR1IE 7CE8 0 ABS 0
+_TMR2IE 7CE9 0 ABS 0
 __Hintsave_regs 0 0 BIGRAM 1
 __Lintsave_regs 0 0 BIGRAM 1
-_TMR1IF 7CF0 0 ABS 0
+_TMR2IF 7CF1 0 ABS 0
 __Hbigbss 0 0 BIGRAM 1
 __Lbigbss 0 0 BIGRAM 1
 __Hintret 0 0 ABS 0
@@ -91,15 +90,16 @@ __Linit E 0 CODE 0
 __Hintcodelo E 0 CODE 0
 __Lintcodelo E 0 CODE 0
 __Hrbss 0 0 COMRAM 1
-__end_of_main BA 0 CODE 0
+__end_of_main B8 0 CODE 0
 __Lrbss 0 0 COMRAM 1
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
 __CFG_CCP2MX$ON 0 0 ABS 0
-end_of_initialization BA 0 CODE 0
+end_of_initialization B8 0 CODE 0
 __CFG_USBDIV$1 0 0 ABS 0
 __CFG_VREGEN$OFF 0 0 ABS 0
 _T1CONbits FCD 0 ABS 0
+_T2CONbits FCA 0 ABS 0
 __Hibigdata 0 0 CODE 0
 __Libigdata 0 0 CODE 0
 __Hifardata 0 0 CODE 0
@@ -124,10 +124,10 @@ __Hbank7 0 0 ABS 0
 __Lbank7 0 0 ABS 0
 __Htext0 0 0 ABS 0
 __Ltext0 0 0 ABS 0
-__ptext0 96 0 CODE 0
+__ptext0 90 0 CODE 0
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
-__end_of__initialization BA 0 CODE 0
+__end_of__initialization B8 0 CODE 0
 ___rparam_used 1 0 ABS 0
 __Hidata 0 0 CODE 0
 __Lidata 0 0 CODE 0
@@ -155,7 +155,7 @@ __Hnvbit 0 0 COMRAM 1
 __Lnvbit 0 0 COMRAM 1
 __Hcinit 0 0 ABS 0
 __Lcinit 0 0 ABS 0
-__pcinit BA 0 CODE 0
+__pcinit B8 0 CODE 0
 __CFG_EBTRB$OFF 0 0 ABS 0
 __ramtop 800 0 RAM 0
 __mediumconst 0 0 MEDIUMCONST 0
@@ -192,12 +192,12 @@ __CFG_WRTC$OFF 0 0 ABS 0
 __CFG_WRTD$OFF 0 0 ABS 0
 __CFG_CPB$OFF 0 0 ABS 0
 __CFG_CPD$OFF 0 0 ABS 0
-start_initialization BA 0 CODE 0
+start_initialization B8 0 CODE 0
 __CFG_IESO$OFF 0 0 ABS 0
 __CFG_MCLRE$ON 0 0 ABS 0
 __size_of_CHECK 0 0 ABS 0
-__initialization BA 0 CODE 0
-__end_of_CHECK 96 0 CODE 0
+__initialization B8 0 CODE 0
+__end_of_CHECK 90 0 CODE 0
 __CFG_LPT1OSC$OFF 0 0 ABS 0
 __CFG_ICPRT$OFF 0 0 ABS 0
 __activetblptr 0 0 ABS 0
@@ -205,45 +205,47 @@ __CFG_WDT$OFF 0 0 ABS 0
 __CFG_LVP$OFF 0 0 ABS 0
 %segments
 reset_vec 0 3 CODE 0 0
-intcode 8 C3 CODE 8 0
+intcode 8 C1 CODE 8 0
 config 300000 30000D CONFIG 300000 0
 idloc 200000 200007 IDLOC 200000 0
 cstackCOMRAM 1 F COMRAM 1 1
 %locals
 dist/default/production/ex_interrupt.X.production.obj
 /opt/microchip/xc8/v1.40/include/pic18f4550.h
-/tmp/xcXsqkU8P
-492 BA 0 CODE 0
-494 BA 0 CODE 0
-497 BA 0 CODE 0
-503 BA 0 CODE 0
-505 BA 0 CODE 0
-506 BC 0 CODE 0
-507 BE 0 CODE 0
-508 C0 0 CODE 0
+/tmp/xcXkCpydz
+492 B8 0 CODE 0
+494 B8 0 CODE 0
+497 B8 0 CODE 0
+503 B8 0 CODE 0
+505 B8 0 CODE 0
+506 BA 0 CODE 0
+507 BC 0 CODE 0
+508 BE 0 CODE 0
 main.c
-24 96 0 CODE 0
-28 96 0 CODE 0
-29 9A 0 CODE 0
-34 9E 0 CODE 0
-41 A0 0 CODE 0
-44 A2 0 CODE 0
-46 A4 0 CODE 0
-48 A6 0 CODE 0
-58 A8 0 CODE 0
-59 AA 0 CODE 0
-61 AC 0 CODE 0
-65 AE 0 CODE 0
-67 B0 0 CODE 0
-69 B2 0 CODE 0
-71 B8 0 CODE 0
+24 90 0 CODE 0
+28 90 0 CODE 0
+29 94 0 CODE 0
+34 98 0 CODE 0
+41 9A 0 CODE 0
+44 9C 0 CODE 0
+46 9E 0 CODE 0
+55 A0 0 CODE 0
+56 A2 0 CODE 0
+66 A4 0 CODE 0
+67 A6 0 CODE 0
+77 A8 0 CODE 0
+78 AA 0 CODE 0
+79 AC 0 CODE 0
+80 AE 0 CODE 0
+96 B0 0 CODE 0
+99 B2 0 CODE 0
+101 B6 0 CODE 0
 main.c
-72 8 0 CODE 0
-76 8 0 CODE 0
+102 8 0 CODE 0
+106 8 0 CODE 0
 main.c
-76 12 0 CODE 0
-82 4C 0 CODE 0
-84 50 0 CODE 0
-87 56 0 CODE 0
-89 58 0 CODE 0
-96 5A 0 CODE 0
+106 12 0 CODE 0
+112 4C 0 CODE 0
+118 50 0 CODE 0
+120 52 0 CODE 0
+127 54 0 CODE 0

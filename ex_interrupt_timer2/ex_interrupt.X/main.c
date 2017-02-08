@@ -43,11 +43,17 @@ main(void)
     //0 = Disables all peripheral interrupts
     PEIE = 1;
     // activer l'interruption timer 1
-    TMR1IE = 1;
+    TMR2IE = 1;
     
-    //timer1 config
-    //config timer temps 90s 
-    T1CONbits.RD16 = 1; // 1: 16bits 0: 8bits
+    //timer2 config
+    /*
+     T2CKPS1:T2CKPS0: Timer2 Clock Prescale Select bits
+    00 = Prescaler is 1
+    01 = Prescaler is 4
+    1x = Prescaler is 16
+     */ 
+    T2CONbits.T2CKPS0 = 0; //
+    T2CONbits.T2CKPS1 = 0;
     //
     /*
      T1CKPS1:T1CKPS0: Timer1 Input Clock Prescale Select bits
@@ -60,15 +66,37 @@ main(void)
     T1CONbits.T1CKPS0 = 1; 
     T1CONbits.T1CKPS1 = 0; 
     //
-    T1CONbits.T1OSCEN = 0; //0= Timer1 oscillator is shut off; 1: ON 
-    //TMR1CS:
-    //0: internal clock fosc/4 ;
-    //1 = External clock from RC0/T1OSO/T13CKI pin (on the rising edge)
-    T1CONbits.TMR1CS = 0; 
+    
+    /*
+     T2OUTPS3:T2OUTPS0: Timer2 Output Postscale Select bits
+    0000 = 1:1 Postscale
+    0001 = 1:2 Postscale
+     
+     */
+    
+    T2CONbits.T2OUTPS0 = 0;
+    T2CONbits.T2OUTPS1 = 0;
+    T2CONbits.T2OUTPS2 = 0;
+    T2CONbits.T2OUTPS3 = 0;
+            
+            
+            
+            
+    
+          
+    
+    
     //
-    T1CONbits.TMR1ON = 1;// activer le timer 
+    /*
+    TMR2ON: Timer2 On bit
+    1 = Timer2 is on
+    0 = Timer2 is off
+     * */
+    
+    T2CONbits.TMR2ON =1 ;
     //
-    WRITETIMER1(0xFF00);// ecrire une  valeur  dans le timer
+    //
+    PR2 =128;
     
     while(1);
 }
@@ -81,14 +109,15 @@ void interrupt CHECK()
     //t_int = tosc*4*présclaer*(0xffff-X+1);X est la valeur qu'on ajoute au timer au debut de l'interruptio
     //dans notre cas c'est 0xff00
     //INTCONbits.PEIE=1;
-    if (TMR1IF == 1)
+    if (TMR2IF == 1)
     {
-        WRITETIMER1(0xFF00);
+        
+        //PR
         // pour ecrie lasortie des pins pour les 18f on utilise le registre LAT
         //on peut le faire avec le registre portB mais ça peut causer des problèmes
         LATB =  ~LATB ; 
        
-        TMR1IF = 0;
+        TMR2IF = 0;
 
         //return;
     }
