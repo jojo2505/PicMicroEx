@@ -1,0 +1,10 @@
+\frametitle{}
+
+
+\raggedright
+    \nocite{*}
+    \bibliographystyle{plain}
+    \bibliography{main}
+%\addcontentsline{toc}{chapter}{Bibliographie}
+
+

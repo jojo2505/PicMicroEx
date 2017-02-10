@@ -1,5 +1,5 @@
 
-# 1 "adconverter.c"
+# 1 "timer0_init.c"
 
 # 26 "/opt/microchip/xc8/v1.40/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -4737,89 +4737,26 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 3 "adconverter.c"
-void int_converter(void)
+# 3 "timer0_init.c"
+void timer0_init(void)
 {
 
-# 13
-ADCS0 = 0;
-ADCS1 = 1;
-ADCS2 = 1;
+# 10
+T08BIT = 0;
 
+# 16
+T0CS = 0;
 
-ACQT0 = 1;
-ACQT1 = 1;
-ACQT2 = 1;
+# 28
+PSA = 0;
 
+# 41
+T0PS0 = 1;
+T0PS1 = 0;
+T0PS2 = 0;
 
-
-ADFM = 1;
-
-# 30
-PCFG0 = 0;
-PCFG1 = 1;
-PCFG2 = 0;
-PCFG3 = 1;
-
-# 39
-ADON = 1;
-
-# 43
-}
-
-
-
-unsigned int start_convert(unsigned char channel)
-{
-
-
-unsigned int val;
-unsigned char *pval1, *pval2;
-pval1 = &val;
-pval2 = pval1+1;
-ADIF =0;
-
-switch(channel)
-{
-case 0:
-CHS0 = 0;
-CHS1 = 0;
-CHS2 = 0;
-CHS3 = 0;
-break;
-case 1:
-CHS0 = 1;
-CHS1 = 0;
-CHS2 = 0;
-CHS3 = 0;
-break;
-case 2:
-CHS0 = 0;
-CHS1 = 1;
-CHS2 = 0;
-CHS3 = 0;
-break;
-case 3:
-CHS0 = 1;
-CHS1 = 1;
-CHS2 = 0;
-CHS3 = 0;
-break;
-case 4:
-CHS0 = 0;
-CHS1 = 0;
-CHS2 = 1;
-CHS3 = 0;
-break;
-default : return 0;
-
-}
-while (ADCON0bits.DONE == 1);
-ADCON0bits.GO =1;
-while (ADCON0bits.DONE == 1);
-*pval1 = ADRESL;
-*pval2 = ADRESH;
-return val;
+# 49
+TMR0ON = 1;
 
 
 

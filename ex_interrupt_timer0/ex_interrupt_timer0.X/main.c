@@ -7,7 +7,7 @@
  * PIC18F4550 , quartz 20Mhz, Fosc = 48Mhz;
  le code controle 5 servomoteur avec les pins RB0..RB4
  la position sont donné par 5 potentiometre par A0..A4
- j'utilise une interruption qui bloque la  fct main chaque 20ms pendant 20ms
+ j'utilise une interruption qui bloque la  fct main chaque 20ms pendant 2ms
  ...
  */
 
@@ -17,7 +17,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "config.h"
-#include "adconverter.h"
+#include "ADConverter.h"
+#include "timer0_init.h"
 
 
 #define bitset(var, bitno) ((var) |= 1UL << (bitno))
@@ -48,10 +49,12 @@ float val_inter;
 void
 main(void)
 {
-
-    int_converter();
-
     unsigned char count_deg;
+    //init ADC and Timer0
+    ADC_init();
+    timer0_init();
+
+
     //config port B pour les servo4
     tservo0 = 0;
     tservo1 = 0;
@@ -60,8 +63,8 @@ main(void)
     tservo4 = 0;
     //config interrupt
     //IPEN:
-    //0: pas de priorit� entre les inter,
-    //1: il ya preiorit� H et L
+    //0: pas de priorité entre les inter,
+    //1: il ya priorité H et L
     IPEN = 0;
     //TMR1IP : priorite de de l'inetrruption timer 1
     //1 : H
@@ -75,72 +78,28 @@ main(void)
     //PEIE = 1;
     // activer l'interruption timer 0
     TMR0IE = 1;
-    /*
-    T08BIT: Timer0 8-Bit/16-Bit Control bit
-    1 = Timer0 is configured as an 8-bit timer/counter
-    0 = Timer0 is configured as a 16-bit timer/counter
-    */
-    T08BIT = 0;
-    /*
-    T0CS: Timer0 Clock Source Select bit
-    1 = Transition on T0CKI pin
-    0 = Internal instruction cycle clock (CLKO)
-    */
-    T0CS = 0;
-    /*
-    T0SE: Timer0 Source Edge Select bit
-    1 = Increment on high-to-low transition on T0CKI pin
-    0 = Increment on low-to-high transition on T0CKI pin
-    */
-    //T0SE non utilisé dans notre car la source est le clock interne du PIC18F4550
-    /*
-    PSA: Timer0 Prescaler Assignment bit
-    1 = TImer0 prescaler is NOT assigned. Timer0 clock input bypasses prescaler.
-    0 = Timer0 prescaler is assigned. Timer0 clock input comes from prescaler output.
-    */
-    PSA = 0;
-    /*
-    T0PS2:T0PS0: Timer0 Prescaler Select bits
-    111 = 1:256 Prescale value
-    110 = 1:128 Prescale value
-    101 = 1:64 Prescale value
-    100 = 1:32 Prescale value
-    011 = 1:16 Prescale value
-    010 = 1:8 Prescale value
-    001 = 1:4 Prescale value
-    000 = 1:2 Prescale value
-    */
-    //128
-    T0PS0 = 1;
-    T0PS1 = 0;
-    T0PS2 = 0;
+
 
     /*calcul pour avoir une interruption chaque 20ms
-    Fosc : frequnce clock cpu dans notre cas 48Mhs
+    Fosc : frequnce clock cpu dans notre cas 48Mhz
     Fcyc : Fosc/4
     prescaler :la valeur du prescaler du timer 1.
-    OF :le nombre d'incrementation pour atteindre 0xff par defaut c'est (0xff+1)
-    on peur le changer en ecrivant une valeur offset dans le timer dès qui 'il passe de 0xff
-    à 0x00, dans ce cas OF sera egal à (0xffff+1)-offset => offset = (0xffff+1)-OF
+    OF :le nombre d'incrementation pour atteindre 0xffff par defaut c'est (0xffff+1)
+    on peut le changer en ecrivant une valeur offset dans le timer dès qui 'il passe de 0xffff
+    à 0x0000, dans ce cas OF = (0xffff+1)-offset => offset = (0xffff+1)-OF
     t_int = (1/Fosc) * 4 *OF*prescaler
     t_int  = (1/(48*10^6))*4*OF*prescaler =20ms
     OF = 20ms/((1/(48*10^6))*4*prescaler)
     offset = (0xffff+1)-20ms/((1/(48*10^6))*4*prescaler)
-    pour un prescaler de 16.
-    offset = 63661
+    pour un prescaler de 4.
+    offset = 5536
     */
-      //WRITETIMER0(50536);//16
+      
       WRITETIMER0(5536);//4
 
 
 
-    /*
-    TMR0ON: Timer0 On/Off Control bit
-    1 = Enables Timer0
-    0 = Stops Timer0
-    */
-    TMR0ON = 1;
-
+    
 
     val_inter = 180.0/1023.0;
     while(1)
@@ -196,8 +155,8 @@ void interrupt CHECK()
 
           //------------------------------------------------------------
           _delay(40);
-          // ce n'est pas les 66 cycles que j'ai calcuer car il ya
-          // de cycles qui sont utilis� par la boucle for.
+          // ce n'est pas les 66 cycles que j'ai calcul� car il ya
+          // des cycles qui sont utilis�s par la boucle for.
           //...
 
 

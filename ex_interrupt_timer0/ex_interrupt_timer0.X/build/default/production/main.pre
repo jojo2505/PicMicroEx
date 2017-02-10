@@ -4932,11 +4932,14 @@ extern int printf(const char *, ...);
 
 #pragma config EBTRB = OFF
 
-# 1 "adconverter.h"
+# 1 "ADConverter.h"
 unsigned int start_convert(unsigned char channel);
-void int_converter(void);
+void ADC_init(void);
 
-# 38 "main.c"
+# 1 "timer0_init.h"
+void timer0_init(void);
+
+# 39 "main.c"
 unsigned char count_deg;
 unsigned char deg0 = 15;
 unsigned char deg1 = 30;
@@ -4950,10 +4953,12 @@ float val_inter;
 void
 main(void)
 {
-
-int_converter();
-
 unsigned char count_deg;
+
+ADC_init();
+timer0_init();
+
+
 
 TRISB0 = 0;
 TRISB1 = 0;
@@ -4966,7 +4971,7 @@ TRISB4 = 0;
 
 IPEN = 0;
 
-# 72
+# 75
 INTCONbits.GIE = 1;
 
 
@@ -4974,27 +4979,10 @@ INTCONbits.GIE = 1;
 
 TMR0IE = 1;
 
-# 83
-T08BIT = 0;
-
-# 89
-T0CS = 0;
-
-# 101
-PSA = 0;
-
-# 114
-T0PS0 = 1;
-T0PS1 = 0;
-T0PS2 = 0;
-
-# 133
+# 98
 ((void)(TMR0H=((5536)>>8),TMR0L=((5536)&0xFF)));
 
-# 142
-TMR0ON = 1;
-
-
+# 104
 val_inter = 180.0/1023.0;
 while(1)
 {
@@ -5050,10 +5038,10 @@ if(deg4 == count_deg) RB4 = 0;
 
 _delay(40);
 
-# 204
+# 163
 }
 
-# 211
+# 170
 TMR0IF = 0;
 
 

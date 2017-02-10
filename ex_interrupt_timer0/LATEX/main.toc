@@ -1,0 +1,6 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {french}
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{Le Timer c'est quoi ?}{4}{0}{2}
+\beamer@sectionintoc {3}{Configuration du Timer0}{6}{0}{3}
+\beamer@sectionintoc {4}{Configuration de l'interruption du Timer0}{11}{0}{4}

@@ -1,71 +1,18 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"8768 /opt/microchip/xc8/v1.40/include/pic18f4550.h
-[v _ADCS0 `Vb ~T0 @X0 0 e@32256 ]
-"8770
-[v _ADCS1 `Vb ~T0 @X0 0 e@32257 ]
-"8772
-[v _ADCS2 `Vb ~T0 @X0 0 e@32258 ]
-"8758
-[v _ACQT0 `Vb ~T0 @X0 0 e@32259 ]
-"8760
-[v _ACQT1 `Vb ~T0 @X0 0 e@32260 ]
-"8762
-[v _ACQT2 `Vb ~T0 @X0 0 e@32261 ]
-"8792
-[v _ADFM `Vb ~T0 @X0 0 e@32263 ]
-"9632
-[v _PCFG0 `Vb ~T0 @X0 0 e@32264 ]
-"9634
-[v _PCFG1 `Vb ~T0 @X0 0 e@32265 ]
-"9636
-[v _PCFG2 `Vb ~T0 @X0 0 e@32266 ]
-"9638
-[v _PCFG3 `Vb ~T0 @X0 0 e@32267 ]
-"8800
-[v _ADON `Vb ~T0 @X0 0 e@32272 ]
-"8796
-[v _ADIF `Vb ~T0 @X0 0 e@31990 ]
-"8892
-[v _CHS0 `Vb ~T0 @X0 0 e@32274 ]
-"8894
-[v _CHS1 `Vb ~T0 @X0 0 e@32275 ]
-"8896
-[v _CHS2 `Vb ~T0 @X0 0 e@32276 ]
-"8898
-[v _CHS3 `Vb ~T0 @X0 0 e@32277 ]
-"6587
-[s S268 :1 `uc 1 :1 `uc 1 ]
-[n S268 . . GO_NOT_DONE ]
-"6591
-[s S269 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
-[n S269 . ADON GO_nDONE CHS ]
-"6596
-[s S270 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S270 . . GO_DONE CHS0 CHS1 CHS2 CHS3 ]
-"6604
-[s S271 :1 `uc 1 :1 `uc 1 ]
-[n S271 . . DONE ]
-"6608
-[s S272 :1 `uc 1 :1 `uc 1 ]
-[n S272 . . GO ]
-"6612
-[s S273 :1 `uc 1 :1 `uc 1 ]
-[n S273 . . NOT_DONE ]
-"6616
-[s S274 :1 `uc 1 :1 `uc 1 ]
-[n S274 . . nDONE ]
-"6620
-[s S275 :1 `uc 1 :1 `uc 1 ]
-[n S275 . . GODONE ]
-"6586
-[u S267 `S268 1 `S269 1 `S270 1 `S271 1 `S272 1 `S273 1 `S274 1 `S275 1 ]
-[n S267 . . . . . . . . . ]
-"6625
-[v _ADCON0bits `VS267 ~T0 @X0 0 e@4034 ]
-"6705
-[v _ADRESL `Vuc ~T0 @X0 0 e@4035 ]
-"6711
-[v _ADRESH `Vuc ~T0 @X0 0 e@4036 ]
+"9956 /opt/microchip/xc8/v1.40/include/pic18f4550.h
+[v _T08BIT `Vb ~T0 @X0 0 e@32430 ]
+"9960
+[v _T0CS `Vb ~T0 @X0 0 e@32429 ]
+"9688
+[v _PSA `Vb ~T0 @X0 0 e@32427 ]
+"9968
+[v _T0PS0 `Vb ~T0 @X0 0 e@32424 ]
+"9970
+[v _T0PS1 `Vb ~T0 @X0 0 e@32425 ]
+"9972
+[v _T0PS2 `Vb ~T0 @X0 0 e@32426 ]
+"10026
+[v _TMR0ON `Vb ~T0 @X0 0 e@32431 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3574,224 +3521,36 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 159: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 161: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delay3(unsigned char);
-"3 adconverter.c
-[v _int_converter `(v ~T0 @X0 1 ef ]
+"3 timer0_init.c
+[v _timer0_init `(v ~T0 @X0 1 ef ]
 "4
 {
-[; ;adconverter.c: 3: void int_converter(void)
-[; ;adconverter.c: 4: {
-[e :U _int_converter ]
+[; ;timer0_init.c: 3: void timer0_init(void)
+[; ;timer0_init.c: 4: {
+[e :U _timer0_init ]
 [f ]
-[; ;adconverter.c: 13: ADCS0 = 0;
-"13
-[e = _ADCS0 -> -> 0 `i `b ]
-[; ;adconverter.c: 14: ADCS1 = 1;
-"14
-[e = _ADCS1 -> -> 1 `i `b ]
-[; ;adconverter.c: 15: ADCS2 = 1;
-"15
-[e = _ADCS2 -> -> 1 `i `b ]
-[; ;adconverter.c: 18: ACQT0 = 1;
-"18
-[e = _ACQT0 -> -> 1 `i `b ]
-[; ;adconverter.c: 19: ACQT1 = 1;
-"19
-[e = _ACQT1 -> -> 1 `i `b ]
-[; ;adconverter.c: 20: ACQT2 = 1;
-"20
-[e = _ACQT2 -> -> 1 `i `b ]
-[; ;adconverter.c: 24: ADFM = 1;
-"24
-[e = _ADFM -> -> 1 `i `b ]
-[; ;adconverter.c: 30: PCFG0 = 0;
-"30
-[e = _PCFG0 -> -> 0 `i `b ]
-[; ;adconverter.c: 31: PCFG1 = 1;
-"31
-[e = _PCFG1 -> -> 1 `i `b ]
-[; ;adconverter.c: 32: PCFG2 = 0;
-"32
-[e = _PCFG2 -> -> 0 `i `b ]
-[; ;adconverter.c: 33: PCFG3 = 1;
-"33
-[e = _PCFG3 -> -> 1 `i `b ]
-[; ;adconverter.c: 39: ADON = 1;
-"39
-[e = _ADON -> -> 1 `i `b ]
-[; ;adconverter.c: 43: }
+[; ;timer0_init.c: 10: T08BIT = 0;
+"10
+[e = _T08BIT -> -> 0 `i `b ]
+[; ;timer0_init.c: 16: T0CS = 0;
+"16
+[e = _T0CS -> -> 0 `i `b ]
+[; ;timer0_init.c: 28: PSA = 0;
+"28
+[e = _PSA -> -> 0 `i `b ]
+[; ;timer0_init.c: 41: T0PS0 = 1;
+"41
+[e = _T0PS0 -> -> 1 `i `b ]
+[; ;timer0_init.c: 42: T0PS1 = 0;
+"42
+[e = _T0PS1 -> -> 0 `i `b ]
+[; ;timer0_init.c: 43: T0PS2 = 0;
 "43
-[e :UE 362 ]
-}
-"47
-[v _start_convert `(ui ~T0 @X0 1 ef1`uc ]
-"48
-{
-[; ;adconverter.c: 47: unsigned int start_convert(unsigned char channel)
-[; ;adconverter.c: 48: {
-[e :U _start_convert ]
-"47
-[v _channel `uc ~T0 @X0 1 r1 ]
-"48
-[f ]
-"51
-[v _val `ui ~T0 @X0 1 a ]
-"52
-[v _pval1 `*uc ~T0 @X0 1 a ]
-[v _pval2 `*uc ~T0 @X0 1 a ]
-[; ;adconverter.c: 51: unsigned int val;
-[; ;adconverter.c: 52: unsigned char *pval1, *pval2;
-[; ;adconverter.c: 53: pval1 = &val;
+[e = _T0PS2 -> -> 0 `i `b ]
+[; ;timer0_init.c: 49: TMR0ON = 1;
+"49
+[e = _TMR0ON -> -> 1 `i `b ]
+[; ;timer0_init.c: 53: }
 "53
-[e = _pval1 -> &U _val `*uc ]
-[; ;adconverter.c: 54: pval2 = pval1+1;
-"54
-[e = _pval2 + _pval1 * -> -> 1 `i `x -> -> # *U _pval1 `i `x ]
-[; ;adconverter.c: 55: ADIF =0;
-"55
-[e = _ADIF -> -> 0 `i `b ]
-[; ;adconverter.c: 57: switch(channel)
-"57
-[e $U 365  ]
-[; ;adconverter.c: 58: {
-"58
-{
-[; ;adconverter.c: 59: case 0:
-"59
-[e :U 366 ]
-[; ;adconverter.c: 60: CHS0 = 0;
-"60
-[e = _CHS0 -> -> 0 `i `b ]
-[; ;adconverter.c: 61: CHS1 = 0;
-"61
-[e = _CHS1 -> -> 0 `i `b ]
-[; ;adconverter.c: 62: CHS2 = 0;
-"62
-[e = _CHS2 -> -> 0 `i `b ]
-[; ;adconverter.c: 63: CHS3 = 0;
-"63
-[e = _CHS3 -> -> 0 `i `b ]
-[; ;adconverter.c: 64: break;
-"64
-[e $U 364  ]
-[; ;adconverter.c: 65: case 1:
-"65
-[e :U 367 ]
-[; ;adconverter.c: 66: CHS0 = 1;
-"66
-[e = _CHS0 -> -> 1 `i `b ]
-[; ;adconverter.c: 67: CHS1 = 0;
-"67
-[e = _CHS1 -> -> 0 `i `b ]
-[; ;adconverter.c: 68: CHS2 = 0;
-"68
-[e = _CHS2 -> -> 0 `i `b ]
-[; ;adconverter.c: 69: CHS3 = 0;
-"69
-[e = _CHS3 -> -> 0 `i `b ]
-[; ;adconverter.c: 70: break;
-"70
-[e $U 364  ]
-[; ;adconverter.c: 71: case 2:
-"71
-[e :U 368 ]
-[; ;adconverter.c: 72: CHS0 = 0;
-"72
-[e = _CHS0 -> -> 0 `i `b ]
-[; ;adconverter.c: 73: CHS1 = 1;
-"73
-[e = _CHS1 -> -> 1 `i `b ]
-[; ;adconverter.c: 74: CHS2 = 0;
-"74
-[e = _CHS2 -> -> 0 `i `b ]
-[; ;adconverter.c: 75: CHS3 = 0;
-"75
-[e = _CHS3 -> -> 0 `i `b ]
-[; ;adconverter.c: 76: break;
-"76
-[e $U 364  ]
-[; ;adconverter.c: 77: case 3:
-"77
-[e :U 369 ]
-[; ;adconverter.c: 78: CHS0 = 1;
-"78
-[e = _CHS0 -> -> 1 `i `b ]
-[; ;adconverter.c: 79: CHS1 = 1;
-"79
-[e = _CHS1 -> -> 1 `i `b ]
-[; ;adconverter.c: 80: CHS2 = 0;
-"80
-[e = _CHS2 -> -> 0 `i `b ]
-[; ;adconverter.c: 81: CHS3 = 0;
-"81
-[e = _CHS3 -> -> 0 `i `b ]
-[; ;adconverter.c: 82: break;
-"82
-[e $U 364  ]
-[; ;adconverter.c: 83: case 4:
-"83
-[e :U 370 ]
-[; ;adconverter.c: 84: CHS0 = 0;
-"84
-[e = _CHS0 -> -> 0 `i `b ]
-[; ;adconverter.c: 85: CHS1 = 0;
-"85
-[e = _CHS1 -> -> 0 `i `b ]
-[; ;adconverter.c: 86: CHS2 = 1;
-"86
-[e = _CHS2 -> -> 1 `i `b ]
-[; ;adconverter.c: 87: CHS3 = 0;
-"87
-[e = _CHS3 -> -> 0 `i `b ]
-[; ;adconverter.c: 88: break;
-"88
-[e $U 364  ]
-[; ;adconverter.c: 89: default : return 0;
-"89
-[e :U 371 ]
-[e ) -> -> 0 `i `ui ]
-[e $UE 363  ]
-"91
-}
-[; ;adconverter.c: 91: }
-[e $U 364  ]
-"57
-[e :U 365 ]
-[e [\ _channel , $ -> -> 0 `i `uc 366
- , $ -> -> 1 `i `uc 367
- , $ -> -> 2 `i `uc 368
- , $ -> -> 3 `i `uc 369
- , $ -> -> 4 `i `uc 370
- 371 ]
-"91
-[e :U 364 ]
-[; ;adconverter.c: 92: while (ADCON0bits.DONE == 1);
-"92
-[e $U 372  ]
-[e :U 373 ]
-[e :U 372 ]
-[e $ == -> . . _ADCON0bits 3 1 `i -> 1 `i 373  ]
-[e :U 374 ]
-[; ;adconverter.c: 93: ADCON0bits.GO =1;
-"93
-[e = . . _ADCON0bits 4 1 -> -> 1 `i `uc ]
-[; ;adconverter.c: 94: while (ADCON0bits.DONE == 1);
-"94
-[e $U 375  ]
-[e :U 376 ]
-[e :U 375 ]
-[e $ == -> . . _ADCON0bits 3 1 `i -> 1 `i 376  ]
-[e :U 377 ]
-[; ;adconverter.c: 95: *pval1 = ADRESL;
-"95
-[e = *U _pval1 _ADRESL ]
-[; ;adconverter.c: 96: *pval2 = ADRESH;
-"96
-[e = *U _pval2 _ADRESH ]
-[; ;adconverter.c: 97: return val;
-"97
-[e ) _val ]
-[e $UE 363  ]
-[; ;adconverter.c: 101: }
-"101
-[e :UE 363 ]
+[e :UE 362 ]
 }

@@ -1,0 +1,276 @@
+\documentclass[french]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath, amssymb}
+\usepackage{verbatim}
+
+\usepackage{babel}
+\usepackage{hyperref} % permet d'obtenir des liens sur les sections dans les PDF
+\newcommand\justifyit{\rightskip0pt \leftskip0pt}
+
+
+%CHOIX DU THEME et/ou DE SA COULEUR
+% => essayer différents thèmes (en décommantant une des trois lignes suivantes)
+%\usetheme{PaloAlto}
+\usetheme{Madrid}
+%\usetheme{Copenhagen}
+
+% => il est possible, pour un thème donné, de modifier seulement la couleur
+%\usecolortheme{crane}
+%\usecolortheme{seahorse}
+
+\useoutertheme[left]{sidebar}
+%
+%\usepackage[backend=biber]{biblatex} 
+%\addbibresource{main.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setbeamertemplate{bibliography item}[triangle]
+
+
+
+\def\uC{$\mu$C}
+%Pour le TITLEPAGE
+\title{Interruption Timer0 avec 18F4550}
+\subtitle{https://github.com/aymentabib/PicMicroEx}
+%\author[Nom (court)]{Nom (long) de l'auteur}
+\author[]{Aymen Tabib}
+\date{Février 2017}
+\institute[DIY]{https://diyelectronique.wordpress.com/}
+%
+
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+%\begin{frame}
+%	Un environnement \texttt{frame} pour chaque \emph{diapositive}.
+%	\visible<2>{Chaque diapo pouvant contenir plusieurs \emph{couches}.}
+%\end{frame}
+
+
+\begin{frame}{Sommaire}
+	\tableofcontents
+\end{frame}
+
+\section{Introduction}
+\begin{frame}{Introduction}
+\justifyit
+Dans cette video on va voir:
+\begin{itemize}
+\item comment configurer le TIMER0 du PIC18F4550.
+\item comment activer l'interruption Timer0;
+\item calculer le temps entre deux interruptions successives.
+\item simulation du code sur isis.
+\end{itemize}
+
+
+\end{frame}
+
+
+\section{Le Timer c'est quoi ?}
+
+\begin{frame}{Le Timer c'est quoi ?}
+\justifyit
+Le timer0 est  un compteur. Mais qu'allez-vous compter avec ce
+timer? Et bien,pour le Timer0 du PIC vous avez deux possibilités :
+
+\begin{itemize}
+
+\item Vous pouvez compter les impulsions reçues sur la pin RA4/TOKI.
+Nous dirons dans ce cas que nous sommes en mode compteur.
+\item Vous pouvez aussi décider de compter les cycles d’horloge du PIC® lui-même.
+Dans ce cas, comme l'horloge est fixe, nous compterons donc en réalité du temps.
+Donc, nous serons en mode timer.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Le Timer c'est quoi ?}
+\justifyit
+dans le datasheet on trouve ça dans les lignes suivantes:
+\begin{itemize}
+\item Selectable clock source (internal or external). (page 125)
+\item In Timer mode, the module increments on every clock... (p126)
+\item In Counter mode, Timer0 increments either on every rising or falling edge of pin RA4/T0CKI.(p126)
+\end{itemize}
+
+\end{frame}
+
+\section{Configuration du Timer0}
+\begin{frame}[fragile]{configuration du prédiviseur(prescaler)}
+\justifyit
+Comme on voit sur la figure 11-1 page 126 du DS(datasheet, il y a prédiviseur avant le 
+Timer0, ce qui nous permet de déviser la vitesse d'incrémentation du timer.Pour le mode timer
+la fréquence d'incrémentation Fcyc= Fosc/4 on peut la faire diviser par 2,4,..,128 ou 256.
+les bits qui configurent le prescaler sont T0PS2:T0PS0 qui sont dans le resgistre T0CON.
+dans notre cas on va mettre le prescaler à une division par 4:
+\begin{verbatim}
+
+T0PS0 = 1;
+T0PS1 = 0;
+T0PS2 = 0;
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Activation de prescaler}
+\justifyit
+Sur la figure 11-1 on va aussi que le signal d'incrémentation du timer peut passer directemnt
+au timer sans etre diviser par le presclare. Donc il faut activer le chemin qui passe par le presclare avec le bit :
+\begin{verbatim}
+/*
+    PSA: Timer0 Prescaler Assignment bit
+    1 = TImer0 prescaler is NOT assigned. 
+    		Timer0 clock input bypasses prescaler.
+    0 = Timer0 prescaler is assigned. 
+    		Timer0 clock input comes from prescaler output.
+*/
+PSA = 0;
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Sélection de la source d'horloge}
+\justifyit
+Comme on a vu précédemment le TIMER0 peut etre incrémenter par l'horloge interne du pic ou par une sorce externele bit qui selectionne cette source est:
+\begin{verbatim}
+  /*
+    T0CS: Timer0 Clock Source Select bit
+    1 = Transition on T0CKI pin
+    0 = Internal instruction cycle clock (CLKO)
+    */
+    T0CS = 0;
+\end{verbatim}
+
+
+
+\end{frame}
+
+
+
+\begin{frame}[fragile]{8-bit/16-bit}
+\justifyit
+Le Timer0 du 18F4550 peut fonctionner comme un compteur 16bits ou 8bits seulement.
+Pour sélectionner le mode de fonctionnement:
+\begin{verbatim}
+/*
+    T08BIT: Timer0 8-Bit/16-Bit Control bit
+    1 = Timer0 is configured as an 8-bit timer/counter
+    0 = Timer0 is configured as a 16-bit timer/counter
+ */
+T08BIT = 0;
+\end{verbatim}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}[fragile]{Mettre en marche le Timer0}
+\justifyit
+Lors de la mise sous tension le Timer0 ne compte pas et vous avez le choix de l'activer et de les désactiver quand vous voulez:
+\begin{verbatim}
+/*
+    TMR0ON: Timer0 On/Off Control bit
+    1 = Enables Timer0
+    0 = Stops Timer0
+*/
+TMR0ON = 1;
+\end{verbatim}
+\end{frame}
+
+\section{Configuration de l'interruption du Timer0}
+\begin{frame}[fragile]{Activation/Désactivation de la priorité}
+\justifyit
+Pour les Pic 18F vous pouvez donner une priorité haute ou basse pour les interruptions
+que vous utilisé, mais vous pouvez aussi désactivé cette notion de priorité pour laissé votre code compatible avec d'autre Pic qui n'ont pas cette option:
+\begin{verbatim}
+//IPEN:
+//0: pas de priorité entre les inter,
+//1: il ya priorité H et L
+IPEN = 0;
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Activation de l'interruption}
+\justifyit
+l'activation de l'interruption Timer0 nécessite la modification de deux bits:
+\begin{verbatim}
+/* activer les interruptions
+si ce bit est à 0, aucune interruption ne sera 
+déclaré même si son bit Enable est mit à 1.
+c'est le "disjoncteur" principal des interruptions
+*/ 
+INTCONbits.GIE = 1;
+// activer l'interruption timer 0
+TMR0IE = 1;
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{CALCUL :)}
+\justifyit
+Le but d'avoir une interruption avec un timer est d'effectuer une tache bien déterminer à un instant bien précis.
+Dans notre cas, envoyer une impulsion au servomoteur chaque 20ms.
+notation:
+\begin{verbatim}
+Fosc : frequnce clock cpu dans notre cas 48Mhz
+Fcyc : Fosc/4
+prescaler :la valeur du prescaler du timer 1.
+OF :(overFlow)le nombre d'incrémentation pour
+    atteindre 0xffff, par defaut c'est (0xffff+1)
+t_int:la durée entre deux interruptions successives
+\end{verbatim}
+on peut le changer OF en ecrivant une valeur offset dans le timer dès qui 'il passe de 0xffff
+à 0x0000, dans ce cas: 
+    \begin{verbatim}
+    OF = (0xffff+1)-offset 
+    offset = (0xffff+1)-OF
+    \end{verbatim}
+ 
+\end{frame}
+
+\begin{frame}[fragile]{suite calcul}
+\justifyit
+   \begin{verbatim}
+t_int = (1/Fosc) * 4 *OF*prescaler
+t_int  = (1/(48*10^6))*4*OF*prescaler =20ms
+OF = 20ms/((1/(48*10^6))*4*prescaler)
+offset = (0xffff+1)-20ms/((1/(48*10^6))*4*prescaler)
+pour un prescaler de 4.
+offset = 5536
+    \end{verbatim}
+    Pour avoir une interruption chaque 20ms on doit écrire le valeur 5536 dans le timer dès qu'il passe à zero.
+    càd au début de l'interruption.
+
+\end{frame}
+
+\begin{frame}[fragile]{}
+
+
+\raggedright
+    \nocite{*}
+    \bibliographystyle{plain}
+    \bibliography{main}
+%\addcontentsline{toc}{chapter}{Bibliographie}
+
+
+\end{frame}
+
+
+%\begin{frame}[fragile]{}
+%\justifyit
+%\end{frame}
+
+\end{document}

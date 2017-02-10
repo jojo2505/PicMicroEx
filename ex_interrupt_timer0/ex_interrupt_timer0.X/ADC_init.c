@@ -1,6 +1,6 @@
 #include <xc.h>
 
-void int_converter(void)
+void ADC_init(void)
 {
 /*
     //datasheet page 398 18f4550

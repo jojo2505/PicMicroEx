@@ -1,0 +1,12 @@
+\begin{thebibliography}{1}
+
+\bibitem{book1}
+BigOnOff.
+\newblock {\em Part1,Part2 et Part5}.
+\newblock https://www.abcelectronique.com/bigonoff/.
+
+\bibitem{book2}
+Microchip~Technology Inc.
+\newblock {\em 18F4550 Datasheet, XC8 user's guide}.
+
+\end{thebibliography}
