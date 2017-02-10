@@ -63,8 +63,8 @@ main(void)
     tservo4 = 0;
     //config interrupt
     //IPEN:
-    //0: pas de priorité entre les inter,
-    //1: il ya priorité H et L
+    //0: pas de priorite entre les inter,
+    //1: il ya priorite H et L
     IPEN = 0;
     //TMR1IP : priorite de de l'inetrruption timer 1
     //1 : H
@@ -85,7 +85,7 @@ main(void)
     Fcyc : Fosc/4
     prescaler :la valeur du prescaler du timer 1.
     OF :le nombre d'incrementation pour atteindre 0xffff par defaut c'est (0xffff+1)
-    on peut le changer en ecrivant une valeur offset dans le timer dès qui 'il passe de 0xffff
+    on peut le changer en ecrivant une valeur offset dans le timer d�s qui 'il passe de 0xffff
     à 0x0000, dans ce cas OF = (0xffff+1)-offset => offset = (0xffff+1)-OF
     t_int = (1/Fosc) * 4 *OF*prescaler
     t_int  = (1/(48*10^6))*4*OF*prescaler =20ms
@@ -128,7 +128,7 @@ main(void)
 void interrupt CHECK()
 {
 
-    //t_int = tosc*4*pr�sclaer*(0xffff-X+1);X est la valeur qu'on ajoute au timer au debut de l'interruptio
+    //t_int = tosc*4*presclaer*(0xffff-X+1);X est la valeur qu'on ajoute au timer au debut de l'interruptio
     //dans notre cas c'est 0xff00
     //INTCONbits.PEIE=1;
     if (TMR0IF == 1)
