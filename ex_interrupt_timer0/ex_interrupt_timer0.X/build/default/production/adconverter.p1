@@ -1,73 +1,71 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[p mainexit ]
-"2 adconverter.h
-[v _int_converter `(v ~T0 @X0 0 ef ]
-"10080 /opt/microchip/xc8/v1.40/include/pic18f4550.h
-[v _TRISB0 `Vb ~T0 @X0 0 e@31896 ]
-"10082
-[v _TRISB1 `Vb ~T0 @X0 0 e@31897 ]
-"10084
-[v _TRISB2 `Vb ~T0 @X0 0 e@31898 ]
-"10086
-[v _TRISB3 `Vb ~T0 @X0 0 e@31899 ]
-"10088
-[v _TRISB4 `Vb ~T0 @X0 0 e@31900 ]
-"9404
-[v _IPEN `Vb ~T0 @X0 0 e@32391 ]
-"8450
-[s S355 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S355 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
-"8460
-[s S356 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S356 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
-"8470
-[s S357 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S357 . . GIEL GIEH ]
-"8449
-[u S354 `S355 1 `S356 1 `S357 1 ]
-[n S354 . . . . ]
-"8476
-[v _INTCONbits `VS354 ~T0 @X0 0 e@4082 ]
-"10020
-[v _TMR0IE `Vb ~T0 @X0 0 e@32661 ]
-"9956
-[v _T08BIT `Vb ~T0 @X0 0 e@32430 ]
-"9960
-[v _T0CS `Vb ~T0 @X0 0 e@32429 ]
-"9688
-[v _PSA `Vb ~T0 @X0 0 e@32427 ]
-"9968
-[v _T0PS0 `Vb ~T0 @X0 0 e@32424 ]
-"9970
-[v _T0PS1 `Vb ~T0 @X0 0 e@32425 ]
-"9972
-[v _T0PS2 `Vb ~T0 @X0 0 e@32426 ]
-"8045
-[v _TMR0H `Vuc ~T0 @X0 0 e@4055 ]
-"8039
-[v _TMR0L `Vuc ~T0 @X0 0 e@4054 ]
-"10026
-[v _TMR0ON `Vb ~T0 @X0 0 e@32431 ]
-"1 adconverter.h
-[v _start_convert `(ui ~T0 @X0 0 ef1`uc ]
-"10022 /opt/microchip/xc8/v1.40/include/pic18f4550.h
-[v _TMR0IF `Vb ~T0 @X0 0 e@32658 ]
-[t ~ __deprecated__ ]
-[t T12 __deprecated__ ]
-"9718
-[v _RB0 `Vb ~T12 @X0 0 e@31752 ]
-"9720
-[v _RB1 `Vb ~T12 @X0 0 e@31753 ]
-"9722
-[v _RB2 `Vb ~T12 @X0 0 e@31754 ]
-"9724
-[v _RB3 `Vb ~T12 @X0 0 e@31755 ]
-"9726
-[v _RB4 `Vb ~T12 @X0 0 e@31756 ]
-[v F3779 `(v ~T0 @X0 1 tf1`ul ]
-"159 /opt/microchip/xc8/v1.40/include/pic18.h
-[v __delay `JF3779 ~T0 @X0 0 e ]
-[p i __delay ]
+"8768 /opt/microchip/xc8/v1.40/include/pic18f4550.h
+[v _ADCS0 `Vb ~T0 @X0 0 e@32256 ]
+"8770
+[v _ADCS1 `Vb ~T0 @X0 0 e@32257 ]
+"8772
+[v _ADCS2 `Vb ~T0 @X0 0 e@32258 ]
+"8758
+[v _ACQT0 `Vb ~T0 @X0 0 e@32259 ]
+"8760
+[v _ACQT1 `Vb ~T0 @X0 0 e@32260 ]
+"8762
+[v _ACQT2 `Vb ~T0 @X0 0 e@32261 ]
+"8792
+[v _ADFM `Vb ~T0 @X0 0 e@32263 ]
+"9632
+[v _PCFG0 `Vb ~T0 @X0 0 e@32264 ]
+"9634
+[v _PCFG1 `Vb ~T0 @X0 0 e@32265 ]
+"9636
+[v _PCFG2 `Vb ~T0 @X0 0 e@32266 ]
+"9638
+[v _PCFG3 `Vb ~T0 @X0 0 e@32267 ]
+"8800
+[v _ADON `Vb ~T0 @X0 0 e@32272 ]
+"8796
+[v _ADIF `Vb ~T0 @X0 0 e@31990 ]
+"8892
+[v _CHS0 `Vb ~T0 @X0 0 e@32274 ]
+"8894
+[v _CHS1 `Vb ~T0 @X0 0 e@32275 ]
+"8896
+[v _CHS2 `Vb ~T0 @X0 0 e@32276 ]
+"8898
+[v _CHS3 `Vb ~T0 @X0 0 e@32277 ]
+"6587
+[s S268 :1 `uc 1 :1 `uc 1 ]
+[n S268 . . GO_NOT_DONE ]
+"6591
+[s S269 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S269 . ADON GO_nDONE CHS ]
+"6596
+[s S270 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S270 . . GO_DONE CHS0 CHS1 CHS2 CHS3 ]
+"6604
+[s S271 :1 `uc 1 :1 `uc 1 ]
+[n S271 . . DONE ]
+"6608
+[s S272 :1 `uc 1 :1 `uc 1 ]
+[n S272 . . GO ]
+"6612
+[s S273 :1 `uc 1 :1 `uc 1 ]
+[n S273 . . NOT_DONE ]
+"6616
+[s S274 :1 `uc 1 :1 `uc 1 ]
+[n S274 . . nDONE ]
+"6620
+[s S275 :1 `uc 1 :1 `uc 1 ]
+[n S275 . . GODONE ]
+"6586
+[u S267 `S268 1 `S269 1 `S270 1 `S271 1 `S272 1 `S273 1 `S274 1 `S275 1 ]
+[n S267 . . . . . . . . . ]
+"6625
+[v _ADCON0bits `VS267 ~T0 @X0 0 e@4034 ]
+"6705
+[v _ADRESL `Vuc ~T0 @X0 0 e@4035 ]
+"6711
+[v _ADRESH `Vuc ~T0 @X0 0 e@4036 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3576,406 +3574,224 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 159: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 161: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delay3(unsigned char);
-[; ;__size_t.h: 4: typedef unsigned size_t;
-[; ;stdlib.h: 7: typedef unsigned short wchar_t;
-[; ;stdlib.h: 15: typedef struct {
-[; ;stdlib.h: 16: int rem;
-[; ;stdlib.h: 17: int quot;
-[; ;stdlib.h: 18: } div_t;
-[; ;stdlib.h: 19: typedef struct {
-[; ;stdlib.h: 20: unsigned rem;
-[; ;stdlib.h: 21: unsigned quot;
-[; ;stdlib.h: 22: } udiv_t;
-[; ;stdlib.h: 23: typedef struct {
-[; ;stdlib.h: 24: long quot;
-[; ;stdlib.h: 25: long rem;
-[; ;stdlib.h: 26: } ldiv_t;
-[; ;stdlib.h: 27: typedef struct {
-[; ;stdlib.h: 28: unsigned long quot;
-[; ;stdlib.h: 29: unsigned long rem;
-[; ;stdlib.h: 30: } uldiv_t;
-[; ;stdlib.h: 53: extern double atof(const char *);
-[; ;stdlib.h: 54: extern double strtod(const char *, const char **);
-[; ;stdlib.h: 55: extern int atoi(const char *);
-[; ;stdlib.h: 56: extern unsigned xtoi(const char *);
-[; ;stdlib.h: 57: extern long atol(const char *);
-[; ;stdlib.h: 58: extern long strtol(const char *, char **, int);
-[; ;stdlib.h: 60: extern int rand(void);
-[; ;stdlib.h: 61: extern void srand(unsigned int);
-[; ;stdlib.h: 62: extern void * calloc(size_t, size_t);
-[; ;stdlib.h: 63: extern div_t div(int numer, int denom);
-[; ;stdlib.h: 64: extern udiv_t udiv(unsigned numer, unsigned denom);
-[; ;stdlib.h: 65: extern ldiv_t ldiv(long numer, long denom);
-[; ;stdlib.h: 66: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
-[; ;stdlib.h: 67: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
-[; ;stdlib.h: 68: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
-[; ;stdlib.h: 69: extern unsigned int _rotl(unsigned int value, unsigned int shift);
-[; ;stdlib.h: 70: extern unsigned int _rotr(unsigned int value, unsigned int shift);
-[; ;stdlib.h: 75: extern void * malloc(size_t);
-[; ;stdlib.h: 76: extern void free(void *);
-[; ;stdlib.h: 77: extern void * realloc(void *, size_t);
-[; ;stdlib.h: 86: extern int atexit(void (*)(void));
-[; ;stdlib.h: 87: extern char * getenv(const char *);
-[; ;stdlib.h: 88: extern char ** environ;
-[; ;stdlib.h: 89: extern int system(char *);
-[; ;stdlib.h: 90: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
-[; ;stdlib.h: 91: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
-[; ;stdlib.h: 92: extern int abs(int);
-[; ;stdlib.h: 93: extern long labs(long);
-[; ;stdlib.h: 95: extern char * itoa(char * buf, int val, int base);
-[; ;stdlib.h: 96: extern char * utoa(char * buf, unsigned val, int base);
-[; ;stdlib.h: 101: extern char * ltoa(char * buf, long val, int base);
-[; ;stdlib.h: 102: extern char * ultoa(char * buf, unsigned long val, int base);
-[; ;stdlib.h: 104: extern char * ftoa(float f, int * status);
-[; ;stdarg.h: 7: typedef void * va_list[1];
-[; ;stdarg.h: 10: extern void * __va_start(void);
-[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
-[; ;stdio.h: 43: struct __prbuf
-[; ;stdio.h: 44: {
-[; ;stdio.h: 45: char * ptr;
-[; ;stdio.h: 46: void (* func)(char);
-[; ;stdio.h: 47: };
-[; ;errno.h: 29: extern int errno;
-[; ;conio.h: 12: extern void init_uart(void);
-[; ;conio.h: 14: extern char getch(void);
-[; ;conio.h: 15: extern char getche(void);
-[; ;conio.h: 16: extern void putch(char);
-[; ;conio.h: 17: extern void ungetch(char);
-[; ;conio.h: 19: extern __bit kbhit(void);
-[; ;conio.h: 23: extern char * cgets(char *);
-[; ;conio.h: 24: extern void cputs(const char *);
-[; ;stdio.h: 88: extern int cprintf(char *, ...);
-[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-[; ;stdio.h: 183: extern char * gets(char *);
-[; ;stdio.h: 184: extern int puts(const char *);
-[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
-[; ;stdio.h: 195: extern int printf(const char *, ...);
-"2 config.h
-[p x PLLDIV=5 ]
-"3
-[p x CPUDIV=OSC1_PLL2 ]
+"3 adconverter.c
+[v _int_converter `(v ~T0 @X0 1 ef ]
 "4
-[p x USBDIV=1 ]
-"7
-[p x FOSC=HSPLL_HS ]
-"8
-[p x FCMEN=OFF ]
-"9
-[p x IESO=OFF ]
-"12
-[p x PWRT=OFF ]
+{
+[; ;adconverter.c: 3: void int_converter(void)
+[; ;adconverter.c: 4: {
+[e :U _int_converter ]
+[f ]
+[; ;adconverter.c: 13: ADCS0 = 0;
 "13
-[p x BOR=ON ]
+[e = _ADCS0 -> -> 0 `i `b ]
+[; ;adconverter.c: 14: ADCS1 = 1;
 "14
-[p x BORV=3 ]
+[e = _ADCS1 -> -> 1 `i `b ]
+[; ;adconverter.c: 15: ADCS2 = 1;
 "15
-[p x VREGEN=OFF ]
+[e = _ADCS2 -> -> 1 `i `b ]
+[; ;adconverter.c: 18: ACQT0 = 1;
 "18
-[p x WDT=OFF ]
+[e = _ACQT0 -> -> 1 `i `b ]
+[; ;adconverter.c: 19: ACQT1 = 1;
 "19
-[p x WDTPS=32768 ]
-"22
-[p x CCP2MX=ON ]
-"23
-[p x PBADEN=OFF ]
+[e = _ACQT1 -> -> 1 `i `b ]
+[; ;adconverter.c: 20: ACQT2 = 1;
+"20
+[e = _ACQT2 -> -> 1 `i `b ]
+[; ;adconverter.c: 24: ADFM = 1;
 "24
-[p x LPT1OSC=OFF ]
-"25
-[p x MCLRE=ON ]
-"28
-[p x STVREN=ON ]
-"29
-[p x LVP=OFF ]
+[e = _ADFM -> -> 1 `i `b ]
+[; ;adconverter.c: 30: PCFG0 = 0;
 "30
-[p x ICPRT=OFF ]
+[e = _PCFG0 -> -> 0 `i `b ]
+[; ;adconverter.c: 31: PCFG1 = 1;
 "31
-[p x XINST=OFF ]
-"34
-[p x CP0=OFF ]
-"35
-[p x CP1=OFF ]
-"36
-[p x CP2=OFF ]
-"37
-[p x CP3=OFF ]
-"40
-[p x CPB=OFF ]
-"41
-[p x CPD=OFF ]
-"44
-[p x WRT0=OFF ]
-"45
-[p x WRT1=OFF ]
-"46
-[p x WRT2=OFF ]
-"47
-[p x WRT3=OFF ]
-"50
-[p x WRTC=OFF ]
-"51
-[p x WRTB=OFF ]
-"52
-[p x WRTD=OFF ]
-"55
-[p x EBTR0=OFF ]
-"56
-[p x EBTR1=OFF ]
-"57
-[p x EBTR2=OFF ]
-"58
-[p x EBTR3=OFF ]
-"61
-[p x EBTRB=OFF ]
-[; ;adconverter.h: 1: unsigned int start_convert(unsigned char channel);
-[; ;adconverter.h: 2: void int_converter(void);
-"38 main.c
-[v _count_deg `uc ~T0 @X0 1 e ]
-[; ;main.c: 38: unsigned char count_deg;
+[e = _PCFG1 -> -> 1 `i `b ]
+[; ;adconverter.c: 32: PCFG2 = 0;
+"32
+[e = _PCFG2 -> -> 0 `i `b ]
+[; ;adconverter.c: 33: PCFG3 = 1;
+"33
+[e = _PCFG3 -> -> 1 `i `b ]
+[; ;adconverter.c: 39: ADON = 1;
 "39
-[v _deg0 `uc ~T0 @X0 1 e ]
-[i _deg0
--> -> 15 `i `uc
-]
-[; ;main.c: 39: unsigned char deg0 = 15;
-"40
-[v _deg1 `uc ~T0 @X0 1 e ]
-[i _deg1
--> -> 30 `i `uc
-]
-[; ;main.c: 40: unsigned char deg1 = 30;
-"41
-[v _deg2 `uc ~T0 @X0 1 e ]
-[i _deg2
--> -> 60 `i `uc
-]
-[; ;main.c: 41: unsigned char deg2 = 60;
-"42
-[v _deg3 `uc ~T0 @X0 1 e ]
-[i _deg3
--> -> 90 `i `uc
-]
-[; ;main.c: 42: unsigned char deg3 = 90;
+[e = _ADON -> -> 1 `i `b ]
+[; ;adconverter.c: 43: }
 "43
-[v _deg4 `uc ~T0 @X0 1 e ]
-[i _deg4
--> -> 120 `i `uc
-]
-[; ;main.c: 43: unsigned char deg4 = 120;
-"45
-[v _val `ui ~T0 @X0 1 e ]
-[; ;main.c: 45: unsigned int val;
-"46
-[v _val_inter `f ~T0 @X0 1 e ]
-[; ;main.c: 46: float val_inter;
-"49
-[v _main `(v ~T0 @X0 1 ef ]
-"50
+[e :UE 362 ]
+}
+"47
+[v _start_convert `(ui ~T0 @X0 1 ef1`uc ]
+"48
 {
-[; ;main.c: 48: void
-[; ;main.c: 49: main(void)
-[; ;main.c: 50: {
-[e :U _main ]
+[; ;adconverter.c: 47: unsigned int start_convert(unsigned char channel)
+[; ;adconverter.c: 48: {
+[e :U _start_convert ]
+"47
+[v _channel `uc ~T0 @X0 1 r1 ]
+"48
 [f ]
-[; ;main.c: 52: int_converter();
+"51
+[v _val `ui ~T0 @X0 1 a ]
 "52
-[e ( _int_converter ..  ]
-[v _count_deg `uc ~T0 @X0 1 a ]
-[; ;main.c: 54: unsigned char count_deg;
-[; ;main.c: 56: TRISB0 = 0;
-"56
-[e = _TRISB0 -> -> 0 `i `b ]
-[; ;main.c: 57: TRISB1 = 0;
+[v _pval1 `*uc ~T0 @X0 1 a ]
+[v _pval2 `*uc ~T0 @X0 1 a ]
+[; ;adconverter.c: 51: unsigned int val;
+[; ;adconverter.c: 52: unsigned char *pval1, *pval2;
+[; ;adconverter.c: 53: pval1 = &val;
+"53
+[e = _pval1 -> &U _val `*uc ]
+[; ;adconverter.c: 54: pval2 = pval1+1;
+"54
+[e = _pval2 + _pval1 * -> -> 1 `i `x -> -> # *U _pval1 `i `x ]
+[; ;adconverter.c: 55: ADIF =0;
+"55
+[e = _ADIF -> -> 0 `i `b ]
+[; ;adconverter.c: 57: switch(channel)
 "57
-[e = _TRISB1 -> -> 0 `i `b ]
-[; ;main.c: 58: TRISB2 = 0;
+[e $U 365  ]
+[; ;adconverter.c: 58: {
 "58
-[e = _TRISB2 -> -> 0 `i `b ]
-[; ;main.c: 59: TRISB3 = 0;
+{
+[; ;adconverter.c: 59: case 0:
 "59
-[e = _TRISB3 -> -> 0 `i `b ]
-[; ;main.c: 60: TRISB4 = 0;
+[e :U 366 ]
+[; ;adconverter.c: 60: CHS0 = 0;
 "60
-[e = _TRISB4 -> -> 0 `i `b ]
-[; ;main.c: 65: IPEN = 0;
+[e = _CHS0 -> -> 0 `i `b ]
+[; ;adconverter.c: 61: CHS1 = 0;
+"61
+[e = _CHS1 -> -> 0 `i `b ]
+[; ;adconverter.c: 62: CHS2 = 0;
+"62
+[e = _CHS2 -> -> 0 `i `b ]
+[; ;adconverter.c: 63: CHS3 = 0;
+"63
+[e = _CHS3 -> -> 0 `i `b ]
+[; ;adconverter.c: 64: break;
+"64
+[e $U 364  ]
+[; ;adconverter.c: 65: case 1:
 "65
-[e = _IPEN -> -> 0 `i `b ]
-[; ;main.c: 72: INTCONbits.GIE = 1;
-"72
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 77: TMR0IE = 1;
-"77
-[e = _TMR0IE -> -> 1 `i `b ]
-[; ;main.c: 83: T08BIT = 0;
-"83
-[e = _T08BIT -> -> 0 `i `b ]
-[; ;main.c: 89: T0CS = 0;
-"89
-[e = _T0CS -> -> 0 `i `b ]
-[; ;main.c: 101: PSA = 0;
-"101
-[e = _PSA -> -> 0 `i `b ]
-[; ;main.c: 114: T0PS0 = 1;
-"114
-[e = _T0PS0 -> -> 1 `i `b ]
-[; ;main.c: 115: T0PS1 = 0;
-"115
-[e = _T0PS1 -> -> 0 `i `b ]
-[; ;main.c: 116: T0PS2 = 0;
-"116
-[e = _T0PS2 -> -> 0 `i `b ]
-[; ;main.c: 133: ((void)(TMR0H=((5536)>>8),TMR0L=((5536)&0xFF)));
-"133
-[e ; = _TMR0H -> >> -> 5536 `i -> 8 `i `uc = _TMR0L -> & -> 5536 `i -> 255 `i `uc ]
-[; ;main.c: 142: TMR0ON = 1;
-"142
-[e = _TMR0ON -> -> 1 `i `b ]
-[; ;main.c: 145: val_inter = 180.0/1023.0;
-"145
-[e = _val_inter -> / .180.0 .1023.0 `f ]
-[; ;main.c: 146: while(1)
-"146
-[e :U 369 ]
-[; ;main.c: 147: {
-"147
-{
-[; ;main.c: 149: val = start_convert(0);
-"149
-[e = _val ( _start_convert (1 -> -> 0 `i `uc ]
-[; ;main.c: 150: deg0 = val*val_inter;
-"150
-[e = _deg0 -> * -> _val `f _val_inter `uc ]
-[; ;main.c: 151: val = start_convert(1);
-"151
-[e = _val ( _start_convert (1 -> -> 1 `i `uc ]
-[; ;main.c: 152: deg1=val*val_inter;
-"152
-[e = _deg1 -> * -> _val `f _val_inter `uc ]
-[; ;main.c: 153: val = start_convert(2);
-"153
-[e = _val ( _start_convert (1 -> -> 2 `i `uc ]
-[; ;main.c: 154: deg2=val*val_inter;
-"154
-[e = _deg2 -> * -> _val `f _val_inter `uc ]
-[; ;main.c: 155: val = start_convert(3);
-"155
-[e = _val ( _start_convert (1 -> -> 3 `i `uc ]
-[; ;main.c: 156: deg3=val*val_inter;
-"156
-[e = _deg3 -> * -> _val `f _val_inter `uc ]
-[; ;main.c: 157: val = start_convert(4);
-"157
-[e = _val ( _start_convert (1 -> -> 4 `i `uc ]
-[; ;main.c: 158: deg4=val*val_inter;
-"158
-[e = _deg4 -> * -> _val `f _val_inter `uc ]
-"161
-}
+[e :U 367 ]
+[; ;adconverter.c: 66: CHS0 = 1;
+"66
+[e = _CHS0 -> -> 1 `i `b ]
+[; ;adconverter.c: 67: CHS1 = 0;
+"67
+[e = _CHS1 -> -> 0 `i `b ]
+[; ;adconverter.c: 68: CHS2 = 0;
+"68
+[e = _CHS2 -> -> 0 `i `b ]
+[; ;adconverter.c: 69: CHS3 = 0;
+"69
+[e = _CHS3 -> -> 0 `i `b ]
+[; ;adconverter.c: 70: break;
+"70
+[e $U 364  ]
+[; ;adconverter.c: 71: case 2:
+"71
 [e :U 368 ]
-"146
-[e $U 369  ]
+[; ;adconverter.c: 72: CHS0 = 0;
+"72
+[e = _CHS0 -> -> 0 `i `b ]
+[; ;adconverter.c: 73: CHS1 = 1;
+"73
+[e = _CHS1 -> -> 1 `i `b ]
+[; ;adconverter.c: 74: CHS2 = 0;
+"74
+[e = _CHS2 -> -> 0 `i `b ]
+[; ;adconverter.c: 75: CHS3 = 0;
+"75
+[e = _CHS3 -> -> 0 `i `b ]
+[; ;adconverter.c: 76: break;
+"76
+[e $U 364  ]
+[; ;adconverter.c: 77: case 3:
+"77
+[e :U 369 ]
+[; ;adconverter.c: 78: CHS0 = 1;
+"78
+[e = _CHS0 -> -> 1 `i `b ]
+[; ;adconverter.c: 79: CHS1 = 1;
+"79
+[e = _CHS1 -> -> 1 `i `b ]
+[; ;adconverter.c: 80: CHS2 = 0;
+"80
+[e = _CHS2 -> -> 0 `i `b ]
+[; ;adconverter.c: 81: CHS3 = 0;
+"81
+[e = _CHS3 -> -> 0 `i `b ]
+[; ;adconverter.c: 82: break;
+"82
+[e $U 364  ]
+[; ;adconverter.c: 83: case 4:
+"83
 [e :U 370 ]
-[; ;main.c: 161: }
-[; ;main.c: 165: }
-"165
-[e :UE 367 ]
+[; ;adconverter.c: 84: CHS0 = 0;
+"84
+[e = _CHS0 -> -> 0 `i `b ]
+[; ;adconverter.c: 85: CHS1 = 0;
+"85
+[e = _CHS1 -> -> 0 `i `b ]
+[; ;adconverter.c: 86: CHS2 = 1;
+"86
+[e = _CHS2 -> -> 1 `i `b ]
+[; ;adconverter.c: 87: CHS3 = 0;
+"87
+[e = _CHS3 -> -> 0 `i `b ]
+[; ;adconverter.c: 88: break;
+"88
+[e $U 364  ]
+[; ;adconverter.c: 89: default : return 0;
+"89
+[e :U 371 ]
+[e ) -> -> 0 `i `ui ]
+[e $UE 363  ]
+"91
 }
-[v F3984 `(v ~T0 @X0 1 tf ]
-"169
-[v _CHECK `IF3984 ~T0 @X0 1 e ]
-"170
-{
-[; ;main.c: 169: void interrupt CHECK()
-[; ;main.c: 170: {
-[e :U _CHECK ]
-[f ]
-[; ;main.c: 175: if (TMR0IF == 1)
-"175
-[e $ ! == -> _TMR0IF `i -> 1 `i 372  ]
-[; ;main.c: 176: {
-"176
-{
-[; ;main.c: 177: ((void)(TMR0H=((5536)>>8),TMR0L=((5536)&0xFF)));
-"177
-[e ; = _TMR0H -> >> -> 5536 `i -> 8 `i `uc = _TMR0L -> & -> 5536 `i -> 255 `i `uc ]
-[; ;main.c: 179: RB0 = 1;
-"179
-[e = _RB0 -> -> 1 `i `b ]
-[; ;main.c: 180: RB1 = 1;
-"180
-[e = _RB1 -> -> 1 `i `b ]
-[; ;main.c: 181: RB2 = 1;
-"181
-[e = _RB2 -> -> 1 `i `b ]
-[; ;main.c: 182: RB3 = 1;
-"182
-[e = _RB3 -> -> 1 `i `b ]
-[; ;main.c: 183: RB4 = 1;
-"183
-[e = _RB4 -> -> 1 `i `b ]
-[; ;main.c: 184: _delay((unsigned long)((1000)*(48000000/4000000.0)));
-"184
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 48000000 `l `d .4000000.0 `ul ]
-[; ;main.c: 188: for(count_deg=0;count_deg<=180;count_deg++)
-"188
-{
-[e = _count_deg -> -> 0 `i `uc ]
-[e $ <= -> _count_deg `i -> 180 `i 373  ]
-[e $U 374  ]
-"189
+[; ;adconverter.c: 91: }
+[e $U 364  ]
+"57
+[e :U 365 ]
+[e [\ _channel , $ -> -> 0 `i `uc 366
+ , $ -> -> 1 `i `uc 367
+ , $ -> -> 2 `i `uc 368
+ , $ -> -> 3 `i `uc 369
+ , $ -> -> 4 `i `uc 370
+ 371 ]
+"91
+[e :U 364 ]
+[; ;adconverter.c: 92: while (ADCON0bits.DONE == 1);
+"92
+[e $U 372  ]
 [e :U 373 ]
-[; ;main.c: 189: {
-{
-[; ;main.c: 191: if(deg0 == count_deg) RB0 = 0;
-"191
-[e $ ! == -> _deg0 `i -> _count_deg `i 376  ]
-[e = _RB0 -> -> 0 `i `b ]
-[e :U 376 ]
-[; ;main.c: 192: if(deg1 == count_deg) RB1 = 0;
-"192
-[e $ ! == -> _deg1 `i -> _count_deg `i 377  ]
-[e = _RB1 -> -> 0 `i `b ]
-[e :U 377 ]
-[; ;main.c: 193: if(deg2 == count_deg) RB2 = 0;
-"193
-[e $ ! == -> _deg2 `i -> _count_deg `i 378  ]
-[e = _RB2 -> -> 0 `i `b ]
-[e :U 378 ]
-[; ;main.c: 194: if(deg3 == count_deg) RB3 = 0;
-"194
-[e $ ! == -> _deg3 `i -> _count_deg `i 379  ]
-[e = _RB3 -> -> 0 `i `b ]
-[e :U 379 ]
-[; ;main.c: 195: if(deg4 == count_deg) RB4 = 0;
-"195
-[e $ ! == -> _deg4 `i -> _count_deg `i 380  ]
-[e = _RB4 -> -> 0 `i `b ]
-[e :U 380 ]
-[; ;main.c: 198: _delay(40);
-"198
-[e ( __delay (1 -> -> -> 40 `i `l `ul ]
-"204
-}
-"188
-[e ++ _count_deg -> -> 1 `i `uc ]
-[e $ <= -> _count_deg `i -> 180 `i 373  ]
-[e :U 374 ]
-"204
-}
-[; ;main.c: 204: }
-[; ;main.c: 211: TMR0IF = 0;
-"211
-[e = _TMR0IF -> -> 0 `i `b ]
-"214
-}
 [e :U 372 ]
-[; ;main.c: 214: }
-[; ;main.c: 218: }
-"218
-[e :UE 371 ]
+[e $ == -> . . _ADCON0bits 3 1 `i -> 1 `i 373  ]
+[e :U 374 ]
+[; ;adconverter.c: 93: ADCON0bits.GO =1;
+"93
+[e = . . _ADCON0bits 4 1 -> -> 1 `i `uc ]
+[; ;adconverter.c: 94: while (ADCON0bits.DONE == 1);
+"94
+[e $U 375  ]
+[e :U 376 ]
+[e :U 375 ]
+[e $ == -> . . _ADCON0bits 3 1 `i -> 1 `i 376  ]
+[e :U 377 ]
+[; ;adconverter.c: 95: *pval1 = ADRESL;
+"95
+[e = *U _pval1 _ADRESL ]
+[; ;adconverter.c: 96: *pval2 = ADRESH;
+"96
+[e = *U _pval2 _ADRESH ]
+[; ;adconverter.c: 97: return val;
+"97
+[e ) _val ]
+[e $UE 363  ]
+[; ;adconverter.c: 101: }
+"101
+[e :UE 363 ]
 }

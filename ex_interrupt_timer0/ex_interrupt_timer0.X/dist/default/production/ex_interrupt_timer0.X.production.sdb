@@ -13,6 +13,10 @@
 [v ___ftmul __ftmul `(f  1 e 3 0 ]
 "20 /opt/microchip/xc8/v1.40/sources/common/ftsub.c
 [v ___ftsub __ftsub `(f  1 e 3 0 ]
+"44 /opt/microchip/xc8/v1.40/sources/common/fttol.c
+[v ___fttol __fttol `(l  1 e 4 0 ]
+"28 /opt/microchip/xc8/v1.40/sources/common/lwtoft.c
+[v ___lwtoft __lwtoft `(f  1 e 3 0 ]
 "10 /opt/microchip/xc8/v1.40/sources/common/sprcadd.c
 [v ___fladd __fladd `(d  1 e 3 0 ]
 "245
@@ -23,15 +27,55 @@
 [v ___flmul __flmul `(d  1 e 3 0 ]
 "15 /opt/microchip/xc8/v1.40/sources/common/Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"45 /media/aymen/DATA/project/git/PicMicroEx/ex_interrupt_timer0/ex_interrupt_timer0.X/main.c
+"3 /media/aymen/DATA/project/git/PicMicroEx/ex_interrupt_timer0/ex_interrupt_timer0.X/adconverter.c
+[v _int_converter int_converter `(v  1 e 1 0 ]
+"47
+[v _start_convert start_convert `(ui  1 e 2 0 ]
+"49 /media/aymen/DATA/project/git/PicMicroEx/ex_interrupt_timer0/ex_interrupt_timer0.X/main.c
 [v _main main `(v  1 e 1 0 ]
-"144
+"169
 [v _CHECK CHECK `II(v  1 e 1 0 ]
-"8039 /opt/microchip/xc8/v1.40/include/pic18f4550.h
+[s S144 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_NOT_DONE 1 0 :1:1 
+]
+"6625 /opt/microchip/xc8/v1.40/include/pic18f4550.h
+[s S147 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS 1 0 :4:2 
+]
+[s S151 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_DONE 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+]
+[s S158 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 DONE 1 0 :1:1 
+]
+[s S161 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+]
+[s S164 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_DONE 1 0 :1:1 
+]
+[s S167 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 nDONE 1 0 :1:1 
+]
+[s S170 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GODONE 1 0 :1:1 
+]
+[u S173 . 1 `S144 1 . 1 0 `S147 1 . 1 0 `S151 1 . 1 0 `S158 1 . 1 0 `S161 1 . 1 0 `S164 1 . 1 0 `S167 1 . 1 0 `S170 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES173  1 e 1 @4034 ]
+"6705
+[v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
+"6711
+[v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
+"8039
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "8045
 [v _TMR0H TMR0H `VEuc  1 e 1 @4055 ]
-[s S27 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S31 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -41,7 +85,7 @@
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "8476
-[s S36 . 1 `uc 1 . 1 0 :1:0 
+[s S40 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -50,14 +94,48 @@
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S45 . 1 `uc 1 . 1 0 :6:0 
+[s S49 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S49 . 1 `S27 1 . 1 0 `S36 1 . 1 0 `S45 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES49  1 e 1 @4082 ]
+[u S53 . 1 `S31 1 . 1 0 `S40 1 . 1 0 `S49 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES53  1 e 1 @4082 ]
+"8758
+[v _ACQT0 ACQT0 `VEb  1 e 0 @32259 ]
+"8760
+[v _ACQT1 ACQT1 `VEb  1 e 0 @32260 ]
+"8762
+[v _ACQT2 ACQT2 `VEb  1 e 0 @32261 ]
+"8768
+[v _ADCS0 ADCS0 `VEb  1 e 0 @32256 ]
+"8770
+[v _ADCS1 ADCS1 `VEb  1 e 0 @32257 ]
+"8772
+[v _ADCS2 ADCS2 `VEb  1 e 0 @32258 ]
+"8792
+[v _ADFM ADFM `VEb  1 e 0 @32263 ]
+"8796
+[v _ADIF ADIF `VEb  1 e 0 @31990 ]
+"8800
+[v _ADON ADON `VEb  1 e 0 @32272 ]
+"8892
+[v _CHS0 CHS0 `VEb  1 e 0 @32274 ]
+"8894
+[v _CHS1 CHS1 `VEb  1 e 0 @32275 ]
+"8896
+[v _CHS2 CHS2 `VEb  1 e 0 @32276 ]
+"8898
+[v _CHS3 CHS3 `VEb  1 e 0 @32277 ]
 "9404
 [v _IPEN IPEN `VEb  1 e 0 @32391 ]
+"9632
+[v _PCFG0 PCFG0 `VEb  1 e 0 @32264 ]
+"9634
+[v _PCFG1 PCFG1 `VEb  1 e 0 @32265 ]
+"9636
+[v _PCFG2 PCFG2 `VEb  1 e 0 @32266 ]
+"9638
+[v _PCFG3 PCFG3 `VEb  1 e 0 @32267 ]
 "9688
 [v _PSA PSA `VEb  1 e 0 @32427 ]
 "9718
@@ -96,25 +174,89 @@
 [v _TRISB3 TRISB3 `VEb  1 e 0 @31899 ]
 "10088
 [v _TRISB4 TRISB4 `VEb  1 e 0 @31900 ]
-"37 /media/aymen/DATA/project/git/PicMicroEx/ex_interrupt_timer0/ex_interrupt_timer0.X/main.c
+"38 /media/aymen/DATA/project/git/PicMicroEx/ex_interrupt_timer0/ex_interrupt_timer0.X/main.c
 [v _count_deg count_deg `uc  1 e 1 0 ]
-"38
-[v _deg0 deg0 `uc  1 e 1 0 ]
 "39
-[v _deg1 deg1 `uc  1 e 1 0 ]
+[v _deg0 deg0 `uc  1 e 1 0 ]
 "40
-[v _deg2 deg2 `uc  1 e 1 0 ]
+[v _deg1 deg1 `uc  1 e 1 0 ]
 "41
-[v _deg3 deg3 `uc  1 e 1 0 ]
+[v _deg2 deg2 `uc  1 e 1 0 ]
 "42
+[v _deg3 deg3 `uc  1 e 1 0 ]
+"43
 [v _deg4 deg4 `uc  1 e 1 0 ]
 "45
+[v _val val `ui  1 e 2 0 ]
+"46
+[v _val_inter val_inter `f  1 e 3 0 ]
+"49
 [v _main main `(v  1 e 1 0 ]
 {
-"140
+"165
 } 0
-"144
+"47 /media/aymen/DATA/project/git/PicMicroEx/ex_interrupt_timer0/ex_interrupt_timer0.X/adconverter.c
+[v _start_convert start_convert `(ui  1 e 2 0 ]
+{
+[v start_convert@channel channel `uc  1 a 1 wreg ]
+"51
+[v start_convert@val val `ui  1 a 2 22 ]
+"52
+[v start_convert@pval1 pval1 `*.39uc  1 a 2 20 ]
+[v start_convert@pval2 pval2 `*.39uc  1 a 2 17 ]
+"47
+[v start_convert@channel channel `uc  1 a 1 wreg ]
+"53
+[v start_convert@channel channel `uc  1 a 1 19 ]
+"101
+} 0
+"3
+[v _int_converter int_converter `(v  1 e 1 0 ]
+{
+"43
+} 0
+"28 /opt/microchip/xc8/v1.40/sources/common/lwtoft.c
+[v ___lwtoft __lwtoft `(f  1 e 3 0 ]
+{
+[v ___lwtoft@c c `ui  1 p 2 23 ]
+"31
+} 0
+"44 /opt/microchip/xc8/v1.40/sources/common/fttol.c
+[v ___fttol __fttol `(l  1 e 4 0 ]
+{
+"47
+[v ___fttol@lval lval `ul  1 a 4 51 ]
+"46
+[v ___fttol@exp1 exp1 `uc  1 a 1 55 ]
+[v ___fttol@sign1 sign1 `uc  1 a 1 50 ]
+"44
+[v ___fttol@f1 f1 `f  1 p 3 41 ]
+"73
+} 0
+"62 /opt/microchip/xc8/v1.40/sources/common/ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+{
+"65
+[v ___ftmul@f3_as_product f3_as_product `um  1 a 3 36 ]
+"64
+[v ___ftmul@sign sign `uc  1 a 1 40 ]
+[v ___ftmul@cntr cntr `uc  1 a 1 39 ]
+[v ___ftmul@exp exp `uc  1 a 1 35 ]
+"62
+[v ___ftmul@f1 f1 `f  1 p 3 26 ]
+[v ___ftmul@f2 f2 `f  1 p 3 29 ]
+"157
+} 0
+"62 /opt/microchip/xc8/v1.40/sources/common/float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+{
+[v ___ftpack@arg arg `um  1 p 3 15 ]
+[v ___ftpack@exp exp `uc  1 p 1 18 ]
+[v ___ftpack@sign sign `uc  1 p 1 19 ]
+"86
+} 0
+"169 /media/aymen/DATA/project/git/PicMicroEx/ex_interrupt_timer0/ex_interrupt_timer0.X/main.c
 [v _CHECK CHECK `II(v  1 e 1 0 ]
 {
-"193
+"218
 } 0

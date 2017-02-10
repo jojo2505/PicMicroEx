@@ -17,6 +17,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "config.h"
+#include "adconverter.h"
 
 
 #define bitset(var, bitno) ((var) |= 1UL << (bitno))
@@ -41,9 +42,15 @@ unsigned char deg2 = 60;
 unsigned char deg3 = 90;
 unsigned char deg4 = 120;
 
+unsigned int val;
+float val_inter;
+
 void
 main(void)
 {
+
+    int_converter();
+
     unsigned char count_deg;
     //config port B pour les servo4
     tservo0 = 0;
@@ -135,8 +142,26 @@ main(void)
     TMR0ON = 1;
 
 
+    val_inter = 180.0/1023.0;
+    while(1)
+    {
 
-    while(1);
+        val = start_convert(0);
+        deg0 = val*val_inter;
+        val = start_convert(1);
+        deg1=val*val_inter;
+        val = start_convert(2);
+        deg2=val*val_inter;
+        val = start_convert(3);
+        deg3=val*val_inter;
+        val = start_convert(4);
+        deg4=val*val_inter;
+
+
+    }
+
+
+
 }
 //
 
@@ -156,7 +181,7 @@ void interrupt CHECK()
         servo2 = 1;
         servo3 = 1;
         servo4 = 1;
-        __delay_ms(1);
+        __delay_us(1000);
         //1ms/180 = 0,005555556 = 5.5us
         //t_cyc = 0.083us = 83ns pour 48Mhz Fosc
         //5.5/0.083 = 66,265060241 = 66 cycles
@@ -168,11 +193,11 @@ void interrupt CHECK()
           if(deg2 == count_deg) servo2 = 0;
           if(deg3 == count_deg) servo3 = 0;
           if(deg4 == count_deg) servo4 = 0;
-          
+
           //------------------------------------------------------------
           _delay(40);
-          // ce n'est pas les 66 cycles que j'ai calcuer car il ya 
-          // de cycles qui sont utilisé par la boucle for.
+          // ce n'est pas les 66 cycles que j'ai calcuer car il ya
+          // de cycles qui sont utilisï¿½ par la boucle for.
           //...
 
 

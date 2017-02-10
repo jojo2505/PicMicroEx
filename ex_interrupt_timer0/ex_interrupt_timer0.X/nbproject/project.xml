@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>ex_interrupt_tmr2</name>
+            <name>ex_interrupt_tmr0</name>
             <creation-uuid>41d78f36-e102-4421-85e4-427d4e08b319</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions>c</c-extensions>
